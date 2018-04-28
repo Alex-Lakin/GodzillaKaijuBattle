@@ -1,6 +1,8 @@
 package com.example.user.godzillakaijubattle;
 
-public class Player {
+import java.io.Serializable;
+
+public class Player implements Serializable {
 
     Kaiju myKaiju;
     Boolean aiControlled;

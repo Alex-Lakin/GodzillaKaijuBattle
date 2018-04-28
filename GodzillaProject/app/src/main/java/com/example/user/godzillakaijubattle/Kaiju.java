@@ -1,8 +1,9 @@
 package com.example.user.godzillakaijubattle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Kaiju {
+public class Kaiju implements Serializable {
 
     private String name;
     private int hp;
