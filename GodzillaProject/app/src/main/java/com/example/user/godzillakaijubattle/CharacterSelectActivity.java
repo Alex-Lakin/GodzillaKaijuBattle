@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class CharacterSelectActivity extends AppCompatActivity {
 
     int arrayPosition;
+    GameMaster controller;
     Player p1;
     ArrayList<Kaiju> selectableCharacters;
     Kaiju godzilla;
@@ -26,6 +27,8 @@ public class CharacterSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_select);
 
+        controller = new GameMaster();
+
         selectableCharacters = new ArrayList<>();
         arrayPosition = 0;
         godzilla = new Kaiju("Godzilla",50,50,1,100);
@@ -33,6 +36,8 @@ public class CharacterSelectActivity extends AppCompatActivity {
 
         p1 = new Player(false);
         p1.assignKaiju(godzilla);
+
+        controller.addCombatant(p1);
 
         characterImage = findViewById(R.id.characterImageViewId);
         characterImage.setImageResource(R.drawable.godzilla);
@@ -59,20 +64,21 @@ public class CharacterSelectActivity extends AppCompatActivity {
         changeCharacter();
     }
 
-    public void changeCharacter(){
+    public void changeCharacter() {
         p1.assignKaiju(selectableCharacters.get(arrayPosition));
+        characterName.setText(p1.getPlayersKaiju().getName());
         if (arrayPosition == 0) {
             characterImage.setImageResource(R.drawable.godzilla);
-            characterName.setText(godzilla.getName());
         } else if (arrayPosition == 1) {
             characterImage.setImageResource(R.drawable.king_ghidorah);
-            characterName.setText(kingGhidorah.getName());
         }
     }
 
     public void onClickPlayButton(View button){
         Intent startGame = new Intent(this,GameActivity.class);
-        startGame.putExtra("player",p1);
+        startGame.putExtra("controller",controller);
         startActivity(startGame);
     }
+
+
 }

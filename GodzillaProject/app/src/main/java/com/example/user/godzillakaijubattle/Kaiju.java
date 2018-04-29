@@ -78,7 +78,7 @@ public class Kaiju implements Serializable {
         this.owner = owner;
     }
 
-//    public void attack(int attkNum, int targetNum, City city){
+    //    public void attack(int attkNum, int targetNum, City city){
 ////        get chosen attack from kaiju's attack array list
 //        Attack attack =  attackList.get(attkNum-1);
 ////        get chosen target (kaiju or building) from city's target arraylist
