@@ -18,6 +18,10 @@ public class GameActivity extends AppCompatActivity {
     ImageButton player1Button;
     ImageButton player2Button;
     TextView p1HudHp;
+    TextView p1HudStp;
+    TextView p1HudAttk;
+    ImageButton p1HudNextAttk;
+    ImageButton p1HudPrevAttk;
 
     ImageButton clickAnywhereElseButton;
 
@@ -62,6 +66,12 @@ public class GameActivity extends AppCompatActivity {
 //        setup player stats and interface
         p1HudHp = findViewById(R.id.p1HpTextViewId);
         p1HudHp.setText("hp: " + p1.getPlayersKaiju().getHp());
+        p1HudStp = findViewById(R.id.p1StpTextViewId);
+        p1HudStp.setText("stp: " + p1.getPlayersKaiju().getStp());
+        p1HudAttk = findViewById(R.id.p1CurrentAttackTextViewId);
+        p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName());
+        p1HudNextAttk = findViewById(R.id.p1NextAttkImageButtonId);
+        p1HudPrevAttk = findViewById(R.id.p1PrevAttkImageButtonId);
 
 
 //        start first turn
@@ -82,6 +92,10 @@ public class GameActivity extends AppCompatActivity {
         if (controller.getTurn() == 1){
             if (p1HudHp.getVisibility() == View.GONE){
                 p1HudHp.setVisibility(View.VISIBLE);
+                p1HudStp.setVisibility(View.VISIBLE);
+                p1HudAttk.setVisibility(View.VISIBLE);
+                p1HudNextAttk.setVisibility(View.VISIBLE);
+                p1HudPrevAttk.setVisibility(View.VISIBLE);
                 clickAnywhereElseButton.setVisibility(View.VISIBLE);
             }
         } else {
@@ -89,6 +103,8 @@ public class GameActivity extends AppCompatActivity {
             currentPlayersTurn.myKaiju.attack(1,1,tokyo);
             controller.nextTurn();
             currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
+            p1HudHp.setText("hp: " + p1.getPlayersKaiju().getHp());
+            p1HudStp.setText("stp: " + p1.getPlayersKaiju().getStp());
         }
     }
 
@@ -105,6 +121,10 @@ public class GameActivity extends AppCompatActivity {
 
     public void onClickedAnwhereElseButton(View button){
         p1HudHp.setVisibility(View.GONE);
+        p1HudStp.setVisibility(View.GONE);
+        p1HudAttk.setVisibility(View.GONE);
+        p1HudNextAttk.setVisibility(View.GONE);
+        p1HudPrevAttk.setVisibility(View.GONE);
         clickAnywhereElseButton.setVisibility(View.GONE);
     }
 }

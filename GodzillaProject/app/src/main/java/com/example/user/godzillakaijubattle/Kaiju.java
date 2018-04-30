@@ -84,6 +84,14 @@ public class Kaiju implements Serializable, IAttackable {
         lockedAttackList.remove(0);
     }
 
+    public Attack getCurrentAttack(){
+        return unlockedAttackList.get(currentlySelectedAttack);
+    }
+
+    public void switchAttack(int plusOrMinus){
+        currentlySelectedAttack += plusOrMinus;
+    }
+
     public String getImageLocation() {
         return imageLocation;
     }

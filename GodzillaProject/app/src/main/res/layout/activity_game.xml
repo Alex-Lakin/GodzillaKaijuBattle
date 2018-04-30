@@ -132,6 +132,29 @@
         app:layout_constraintBottom_toTopOf="@+id/player1ImageButtonId"
         app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId" />
 
+    <TextView
+        android:id="@+id/p1StpTextViewId"
+        android:layout_width="54dp"
+        android:layout_height="21dp"
+        android:text="Stp goes here"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/player1ImageButtonId"
+        app:layout_constraintStart_toEndOf="@+id/p1HpTextViewId" />
+
+    <TextView
+        android:id="@+id/p1CurrentAttackTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="current attack"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/player1ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId"
+        app:layout_constraintTop_toBottomOf="@+id/player1ImageButtonId" />
+
     <ImageButton
         android:id="@+id/clickAnywhereElseImageButtonId"
         android:layout_width="771dp"
@@ -147,5 +170,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/list_selector_background" />
+
+    <ImageButton
+        android:id="@+id/p1NextAttkImageButtonId"
+        android:layout_width="18dp"
+        android:layout_height="20dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/p1CurrentAttackTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/p1PrevAttkImageButtonId"
+        android:layout_width="18dp"
+        android:layout_height="20dp"
+        android:scaleX="-1"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/p1CurrentAttackTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
 </android.support.constraint.ConstraintLayout>
