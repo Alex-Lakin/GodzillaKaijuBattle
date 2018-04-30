@@ -67,11 +67,8 @@ public class CharacterSelectActivity extends AppCompatActivity {
     public void changeCharacter() {
         p1.assignKaiju(selectableCharacters.get(arrayPosition));
         characterName.setText(p1.getPlayersKaiju().getName());
-        if (arrayPosition == 0) {
-            characterImage.setImageResource(R.drawable.godzilla);
-        } else if (arrayPosition == 1) {
-            characterImage.setImageResource(R.drawable.king_ghidorah);
-        }
+        int resourceId = getResources().getIdentifier(p1.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
+        characterImage.setImageResource(resourceId);
     }
 
     public void onClickPlayButton(View button){

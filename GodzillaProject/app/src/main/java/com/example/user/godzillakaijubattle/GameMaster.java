@@ -28,7 +28,7 @@ public class GameMaster implements Serializable {
         currentCity = null;
 
 //        setup Godzilla
-        godzilla = new Kaiju("Godzilla",100,110,1,100);
+        godzilla = new Kaiju("Godzilla",100,110,1,100,"godzilla");
         clawSlash = new Attack("Claw Slash", 10,20,1);
         tailStrike = new Attack("Tail Strike", 20,30,2);
         atomicBreath = new Attack("Atomic Breath", 30,50,3);
@@ -38,7 +38,7 @@ public class GameMaster implements Serializable {
         godzilla.unlockNextAttack();
 
 //        setup King Ghidorah
-        kingGhidorah = new Kaiju("King Ghidorah", 120, 90,1, 100);
+        kingGhidorah = new Kaiju("King Ghidorah", 120, 90,1, 100,"king_ghidorah");
         doubleTailWhip = new Attack("Double Tail Whips", 20,40,1);
         whirlWind = new Attack("Whirl Wind", 30,40,2);
         gravityBeams = new Attack("Gravity Beams", 50,60,3);
@@ -66,7 +66,7 @@ public class GameMaster implements Serializable {
 
     public void nextTurn() {
         this.turn++;
-        if (turn >= combatants.size()) {
+        if (turn > combatants.size()) {
             turn = 1;
             round ++;
         }

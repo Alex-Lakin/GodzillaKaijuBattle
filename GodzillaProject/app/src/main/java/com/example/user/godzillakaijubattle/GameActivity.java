@@ -17,6 +17,9 @@ public class GameActivity extends AppCompatActivity {
     Player p2;
     ImageButton player1Button;
     ImageButton player2Button;
+    TextView p1HudHp;
+
+    ImageButton clickAnywhereElseButton;
 
 //    testing
     TextView testText;
@@ -50,19 +53,15 @@ public class GameActivity extends AppCompatActivity {
 //        setup player buttons
         player1Button = findViewById(R.id.player1ImageButtonId);
         player2Button = findViewById(R.id.player2ImageButtonId);
+        int p1resourceId = getResources().getIdentifier(p1.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
+        player1Button.setImageResource(p1resourceId);
+        int p2resourceId = getResources().getIdentifier(p2.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
+        player2Button.setImageResource(p2resourceId);
 
-        String kaijuName = p1.getPlayersKaiju().getName();
-        if (kaijuName.equals("Godzilla")) {
-            player1Button.setImageResource(R.drawable.godzilla);
-        } else if (kaijuName.equals("King Ghidorah")){
-            player1Button.setImageResource(R.drawable.king_ghidorah);
-        }
-        String kaiju2Name = p2.getPlayersKaiju().getName();
-        if (kaiju2Name.equals("Godzilla")) {
-            player2Button.setImageResource(R.drawable.godzilla);
-        } else if (kaiju2Name.equals("King Ghidorah")){
-            player2Button.setImageResource(R.drawable.king_ghidorah);
-        }
+
+//        setup player stats and interface
+        p1HudHp = findViewById(R.id.p1HpTextViewId);
+        p1HudHp.setText("hp: " + p1.getPlayersKaiju().getHp());
 
 
 //        start first turn
@@ -71,20 +70,25 @@ public class GameActivity extends AppCompatActivity {
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
 
 
-
+//        misc
+        clickAnywhereElseButton = findViewById(R.id.clickAnywhereElseImageButtonId);
 
 //        testing
         testText = findViewById(R.id.TestTextView);
-        testText.setText("Turn: " + controller.getTurn());
+        testText.setText("test");
     }
 
     public void onClickedP1Button(View button){
         if (controller.getTurn() == 1){
-//            get player stats
+            if (p1HudHp.getVisibility() == View.GONE){
+                p1HudHp.setVisibility(View.VISIBLE);
+                clickAnywhereElseButton.setVisibility(View.VISIBLE);
+            }
         } else {
             Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
             currentPlayersTurn.myKaiju.attack(1,1,tokyo);
-            testText.setText("Turn: " + controller.getTurn());
+            controller.nextTurn();
+            currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
         }
     }
 
@@ -92,9 +96,15 @@ public class GameActivity extends AppCompatActivity {
         if (controller.getTurn() == 2){
 //            get player stats
         } else {
-            Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
+            Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
             currentPlayersTurn.myKaiju.attack(1,2,tokyo);
-            testText.setText("Turn: " + controller.getTurn());
+            controller.nextTurn();
+            currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
         }
+    }
+
+    public void onClickedAnwhereElseButton(View button){
+        p1HudHp.setVisibility(View.GONE);
+        clickAnywhereElseButton.setVisibility(View.GONE);
     }
 }

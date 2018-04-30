@@ -41,10 +41,10 @@
         android:onClick="onClickedP1Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73"
+        app:layout_constraintVertical_bias="0.732"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <ImageButton
@@ -71,7 +71,7 @@
         android:background="@android:drawable/list_selector_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.703"
@@ -122,5 +122,30 @@
         android:text="this is for testing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p1HpTextViewId"
+        android:layout_width="54dp"
+        android:layout_height="21dp"
+        android:text="CharactersHpHere"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/player1ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId" />
+
+    <ImageButton
+        android:id="@+id/clickAnywhereElseImageButtonId"
+        android:layout_width="771dp"
+        android:layout_height="448dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickedAnwhereElseButton"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/list_selector_background" />
 
 </android.support.constraint.ConstraintLayout>

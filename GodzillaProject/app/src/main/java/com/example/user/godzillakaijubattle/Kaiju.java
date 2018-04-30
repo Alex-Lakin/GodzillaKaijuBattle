@@ -14,9 +14,10 @@ public class Kaiju implements Serializable, IAttackable {
     private ArrayList<Attack> unlockedAttackList;
     private ArrayList<Attack> lockedAttackList;
     private int currentlySelectedAttack;
+    private String imageLocation;
     private Player owner;
 
-    public Kaiju(String name, int hp, int stp, int lev, int expGain){
+    public Kaiju(String name, int hp, int stp, int lev, int expGain, String imageLocation){
         this.name = name;
         this.lev = lev;
         this.hp = hp*lev;
@@ -26,6 +27,7 @@ public class Kaiju implements Serializable, IAttackable {
         this.unlockedAttackList = new ArrayList<>();
         this.lockedAttackList = new ArrayList<>();
         this.currentlySelectedAttack = 0;
+        this.imageLocation = imageLocation;
         this.owner = null;
     }
 
@@ -80,6 +82,10 @@ public class Kaiju implements Serializable, IAttackable {
     public void unlockNextAttack() {
         unlockedAttackList.add(lockedAttackList.get(0));
         lockedAttackList.remove(0);
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
     }
 
     public Player getOwner() {
