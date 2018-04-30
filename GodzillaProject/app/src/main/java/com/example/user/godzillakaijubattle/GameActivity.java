@@ -10,10 +10,16 @@ import android.widget.TextView;
 public class GameActivity extends AppCompatActivity {
 
     GameMaster controller;
+    City tokyo;
+    TextView currentCityText;
+    TextView currentTurnText;
     Player p1;
     Player p2;
     ImageButton player1Button;
     ImageButton player2Button;
+
+//    testing
+    TextView testText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +29,12 @@ public class GameActivity extends AppCompatActivity {
         Intent g = getIntent();
         Bundle extras = g.getExtras();
         controller = (GameMaster) extras.getSerializable("controller");
-        p1 = controller.getCombatants().get(0);
+
+        tokyo = new City("Tokyo");
+        currentCityText = findViewById(R.id.cityTextViewId);
+        currentCityText.setText(tokyo.getName());
+
+        p1 = controller.getAllCombatants().get(0);
         p2 = new Player(true);
         Kaiju kingGhidorah = new Kaiju("King Ghidorah",100,100,1,100);
         p2.assignKaiju(kingGhidorah);
@@ -44,13 +55,35 @@ public class GameActivity extends AppCompatActivity {
         } else if (kaiju2Name.equals("King Ghidorah")){
             player2Button.setImageResource(R.drawable.king_ghidorah);
         }
+        controller.nextTurn();
+        currentTurnText = findViewById(R.id.playerTurnTextViewId);
+        currentTurnText.setText(controller.getCombatant(controller.getTurn()-1).getPlayersKaiju().getName() + "'s move.");
+
+
+
+
+//        testing
+        testText = findViewById(R.id.TestTextView);
+        testText.setText("Turn: " + controller.getTurn());
     }
 
     public void onClickedP1Button(View button){
-
+        if (controller.getTurn() == 1){
+//            get player stats
+        } else {
+            Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
+            currentPlayersTurn.myKaiju.attack(1,1,tokyo);
+            testText.setText("Turn: " + controller.getTurn());
+        }
     }
 
     public void onClickedP2Button(View button){
-
+        if (controller.getTurn() == 2){
+//            get player stats
+        } else {
+            Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
+            currentPlayersTurn.myKaiju.attack(1,2,tokyo);
+            testText.setText("Turn: " + controller.getTurn());
+        }
     }
 }
