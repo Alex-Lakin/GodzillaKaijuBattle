@@ -26,20 +26,28 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+//        get game controller from prev screen
         Intent g = getIntent();
         Bundle extras = g.getExtras();
         controller = (GameMaster) extras.getSerializable("controller");
 
+//        create city
         tokyo = new City("Tokyo");
         currentCityText = findViewById(R.id.cityTextViewId);
         currentCityText.setText(tokyo.getName());
 
-        p1 = controller.getAllCombatants().get(0);
+
+//        get players
+        p1 = controller.getCombatant(1);
         p2 = new Player(true);
-        Kaiju kingGhidorah = new Kaiju("King Ghidorah",100,100,1,100);
+        Kaiju kingGhidorah = controller.kingGhidorah;
         p2.assignKaiju(kingGhidorah);
         controller.addCombatant(p2);
+        tokyo.addTarget(controller.getCombatant(1).getPlayersKaiju());
+        tokyo.addTarget(controller.getCombatant(2).getPlayersKaiju());
 
+
+//        setup player buttons
         player1Button = findViewById(R.id.player1ImageButtonId);
         player2Button = findViewById(R.id.player2ImageButtonId);
 
@@ -55,9 +63,12 @@ public class GameActivity extends AppCompatActivity {
         } else if (kaiju2Name.equals("King Ghidorah")){
             player2Button.setImageResource(R.drawable.king_ghidorah);
         }
+
+
+//        start first turn
         controller.nextTurn();
         currentTurnText = findViewById(R.id.playerTurnTextViewId);
-        currentTurnText.setText(controller.getCombatant(controller.getTurn()-1).getPlayersKaiju().getName() + "'s move.");
+        currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
 
 
 

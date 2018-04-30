@@ -1,6 +1,8 @@
 package com.example.user.godzillakaijubattle;
 
-public class Attack {
+import java.io.Serializable;
+
+public class Attack implements Serializable {
     String name;
     int dmg;
     int stpCost;

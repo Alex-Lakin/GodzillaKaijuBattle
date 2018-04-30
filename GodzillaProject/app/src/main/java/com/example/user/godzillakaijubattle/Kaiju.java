@@ -90,9 +90,9 @@ public class Kaiju implements Serializable, IAttackable {
         this.owner = owner;
     }
 
-        public void attack(int attkNum, int targetNum, City city){
+    public void attack(int attkNum, int targetNum, City city){
 //        get chosen attack from kaiju's attack array list
-        Attack attack =  unlockedAttackList.get(attkNum-1);
+        Attack attack = unlockedAttackList.get(attkNum-1);
 //        get chosen target (kaiju or building) from city's target arraylist
         IAttackable opponent = city.getTargets().get(targetNum-1);
 //        if you have enough stp to perform attack
@@ -103,15 +103,14 @@ public class Kaiju implements Serializable, IAttackable {
             opponent.setHp(opponent.getHp()-attack.getDmg());
 //            if opponent's hp is 0 or less
             if (opponent.getHp() <= 0){
-//                get you exp reward
+//                get your exp reward
                 this.gainExp(opponent.getExpGain());
 //                level up if you have enough exp
-                if (this.exp >= (this.lev * this. expGain)){
+                if (this.exp >= (this.lev * this.expGain)){
                     this.increaseLev();
                 }
 //                remove opponent from cities target list
                 city.removeTarget(opponent);
-
             }
         }
     }

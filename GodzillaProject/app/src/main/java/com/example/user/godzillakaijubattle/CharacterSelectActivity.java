@@ -31,8 +31,8 @@ public class CharacterSelectActivity extends AppCompatActivity {
 
         selectableCharacters = new ArrayList<>();
         arrayPosition = 0;
-        godzilla = new Kaiju("Godzilla",50,50,1,100);
-        kingGhidorah = new Kaiju("King Ghidorah",50,50,1,100);
+        godzilla = controller.godzilla;
+        kingGhidorah = controller.kingGhidorah;
 
         p1 = new Player(false);
         p1.assignKaiju(godzilla);
