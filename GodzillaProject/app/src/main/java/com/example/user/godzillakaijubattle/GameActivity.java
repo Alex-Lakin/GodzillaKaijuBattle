@@ -118,18 +118,26 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+    public void onClickedPlayerButton(View button){
+        int whichPlayer = 0;
+        View[] playersButtons;
+        if (button == player1Button){
+            whichPlayer = 1;
+            playersButtons = p1buttons;
+        } else if (button == player2Button){
+            whichPlayer = 2;
+            playersButtons = p2buttons;
+        } else {
+            playersButtons = new View[]{};}
+        refactoredCharacterButtonActionsForThisPlayer(whichPlayer,playersButtons);
+    }
 
 
-
-
-
-
-
-    public void onClickedP1Button(View button){
+    public void refactoredCharacterButtonActionsForThisPlayer(int p, View[] playersButtons){
 //        if its this players turn, show them stats and attacks
-        if (controller.getTurn() == 1){
-            if (p1buttons[0].getVisibility() == View.GONE){
-                for (View aView : p1buttons){
+        if (controller.getTurn() == p){
+            if (playersButtons[0].getVisibility() == View.GONE){
+                for (View aView : playersButtons){
                     aView.setVisibility(View.VISIBLE);
                 }
             }
@@ -138,7 +146,7 @@ public class GameActivity extends AppCompatActivity {
 //            get the player whose turn it is
             Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
 //            player whose turn it is attacks this player
-            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),1,tokyo);
+            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),p-1,tokyo);
 //            move on to next player
             controller.nextTurn();
 //            update the screen with latest information
@@ -166,26 +174,19 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-//    public void onClickedPlayerButton(View button){
-//        int whichPlayer = 0;
-//        if (button == player1Button){
-//            whichPlayer = 1;
-//        }else {
-//            whichPlayer = 2;
-//        }
-//        refactoredCharacterButtonActionsForThisPlayer(whichPlayer);
-//    }
+
 
 
 
 
 
     public void onClickedAnwhereElseButton(View button){
-        p1HudStats.setVisibility(View.GONE);
-        p1HudAttk.setVisibility(View.GONE);
-        p1HudNextAttk.setVisibility(View.GONE);
-        p1HudPrevAttk.setVisibility(View.GONE);
-        clickAnywhereElseButton.setVisibility(View.GONE);
+        for (View aView : p1buttons){
+            aView.setVisibility(View.GONE);
+        }
+        for (View aView : p2buttons){
+            aView.setVisibility(View.GONE);
+        }
     }
 
 
@@ -195,5 +196,7 @@ public class GameActivity extends AppCompatActivity {
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
         p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
         p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
+        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
+        p2HudAttk.setText(controller.getCombatant(2).getPlayersKaiju().getCurrentAttack().getName());
     }
 }
