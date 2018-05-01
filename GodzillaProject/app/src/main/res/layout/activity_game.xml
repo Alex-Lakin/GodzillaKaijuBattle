@@ -17,7 +17,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickedP2Button"
         android:scaleX="-1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +70,7 @@
         android:background="@android:drawable/list_selector_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.703"
@@ -124,22 +123,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/p1HpTextViewId"
-        android:layout_width="54dp"
-        android:layout_height="21dp"
+        android:id="@+id/p1StatsTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="CharactersHpHere"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/player1ImageButtonId"
+        app:layout_constraintEnd_toEndOf="@+id/player1ImageButtonId"
         app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId" />
-
-    <TextView
-        android:id="@+id/p1StpTextViewId"
-        android:layout_width="54dp"
-        android:layout_height="21dp"
-        android:text="Stp goes here"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/player1ImageButtonId"
-        app:layout_constraintStart_toEndOf="@+id/p1HpTextViewId" />
 
     <TextView
         android:id="@+id/p1CurrentAttackTextViewId"
@@ -150,7 +141,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="current attack"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/player1ImageButtonId"
         app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId"
         app:layout_constraintTop_toBottomOf="@+id/player1ImageButtonId" />
@@ -175,7 +166,8 @@
         android:id="@+id/p1NextAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
-        android:visibility="gone"
+        android:onClick="onClickedP1NextAttack"
+        android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/p1CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
         app:srcCompat="@android:drawable/ic_media_play" />
@@ -184,10 +176,50 @@
         android:id="@+id/p1PrevAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
+        android:onClick="onClickedP1PrevAttack"
         android:scaleX="-1"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/p1CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <TextView
+        android:id="@+id/p2StatsTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CharactersHpHere"
+        app:layout_constraintBottom_toTopOf="@+id/player2ImageButtonId"
+        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId" />
+
+    <TextView
+        android:id="@+id/p2CurrentAttackTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="current attack"
+        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId"
+        app:layout_constraintTop_toBottomOf="@+id/player2ImageButtonId" />
+
+    <ImageButton
+        android:id="@+id/p2NextAttkImageButtonId"
+        android:layout_width="18dp"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toEndOf="@+id/p2CurrentAttackTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p2CurrentAttackTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/p2PrevAttkImageButtonId"
+        android:layout_width="18dp"
+        android:layout_height="20dp"
+        android:scaleX="-1"
+        app:layout_constraintEnd_toStartOf="@+id/p2CurrentAttackTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p2CurrentAttackTextViewId"
         app:srcCompat="@android:drawable/ic_media_play" />
 
 </android.support.constraint.ConstraintLayout>

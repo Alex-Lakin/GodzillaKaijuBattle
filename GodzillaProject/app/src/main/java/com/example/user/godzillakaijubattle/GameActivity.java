@@ -7,23 +7,38 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class GameActivity extends AppCompatActivity {
 
+//    world
     GameMaster controller;
     City tokyo;
     TextView currentCityText;
     TextView currentTurnText;
+    ImageButton clickAnywhereElseButton;
+
+
+//    player 1
     Player p1;
-    Player p2;
     ImageButton player1Button;
-    ImageButton player2Button;
-    TextView p1HudHp;
-    TextView p1HudStp;
+    TextView p1HudStats;
     TextView p1HudAttk;
     ImageButton p1HudNextAttk;
     ImageButton p1HudPrevAttk;
+    View[] p1buttons;
 
-    ImageButton clickAnywhereElseButton;
+//    player 2
+    Player p2;
+    ImageButton player2Button;
+    TextView p2HudStats;
+    TextView p2HudAttk;
+    ImageButton p2HudNextAttk;
+    ImageButton p2HudPrevAttk;
+    View[] p2buttons;
+
+
 
 //    testing
     TextView testText;
@@ -44,17 +59,20 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 
+//        set up click anywhere else button
+        clickAnywhereElseButton = findViewById(R.id.clickAnywhereElseImageButtonId);
+
+
 //        get players
         p1 = controller.getCombatant(1);
-        p2 = new Player(true);
-        Kaiju kingGhidorah = controller.kingGhidorah;
-        p2.assignKaiju(kingGhidorah);
-        controller.addCombatant(p2);
+        p2 = controller.getCombatant(2);
+
+
         tokyo.addTarget(controller.getCombatant(1).getPlayersKaiju());
         tokyo.addTarget(controller.getCombatant(2).getPlayersKaiju());
 
 
-//        setup player buttons
+//        setup player character buttons
         player1Button = findViewById(R.id.player1ImageButtonId);
         player2Button = findViewById(R.id.player2ImageButtonId);
         int p1resourceId = getResources().getIdentifier(p1.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
@@ -63,16 +81,30 @@ public class GameActivity extends AppCompatActivity {
         player2Button.setImageResource(p2resourceId);
 
 
-//        setup player stats and interface
-        p1HudHp = findViewById(R.id.p1HpTextViewId);
-        p1HudHp.setText("hp: " + p1.getPlayersKaiju().getHp());
-        p1HudStp = findViewById(R.id.p1StpTextViewId);
-        p1HudStp.setText("stp: " + p1.getPlayersKaiju().getStp());
+//        setup player stats and interface pop up
+//          player 1
+        p1HudStats = findViewById(R.id.p1StatsTextViewId);
+        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
         p1HudAttk = findViewById(R.id.p1CurrentAttackTextViewId);
         p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName());
         p1HudNextAttk = findViewById(R.id.p1NextAttkImageButtonId);
         p1HudPrevAttk = findViewById(R.id.p1PrevAttkImageButtonId);
+        p1buttons = new View[]{p1HudStats,p1HudAttk,p1HudNextAttk,p1HudPrevAttk,clickAnywhereElseButton};
+        for (View aView : p1buttons){
+            aView.setVisibility(View.GONE);
+        }
 
+//          player2
+        p2HudStats = findViewById(R.id.p2StatsTextViewId);
+        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
+        p2HudAttk = findViewById(R.id.p2CurrentAttackTextViewId);
+        p2HudAttk.setText(p2.getPlayersKaiju().getCurrentAttack().getName());
+        p2HudNextAttk = findViewById(R.id.p2NextAttkImageButtonId);
+        p2HudPrevAttk = findViewById(R.id.p2PrevAttkImageButtonId);
+        p2buttons = new View[]{p2HudStats,p2HudAttk,p2HudNextAttk,p2HudPrevAttk,clickAnywhereElseButton};
+        for (View aView : p2buttons){
+            aView.setVisibility(View.GONE);
+        }
 
 //        start first turn
         controller.nextTurn();
@@ -80,51 +112,88 @@ public class GameActivity extends AppCompatActivity {
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
 
 
-//        misc
-        clickAnywhereElseButton = findViewById(R.id.clickAnywhereElseImageButtonId);
-
 //        testing
         testText = findViewById(R.id.TestTextView);
         testText.setText("test");
     }
 
+
+
+
+
+
+
+
+
     public void onClickedP1Button(View button){
+//        if its this players turn, show them stats and attacks
         if (controller.getTurn() == 1){
-            if (p1HudHp.getVisibility() == View.GONE){
-                p1HudHp.setVisibility(View.VISIBLE);
-                p1HudStp.setVisibility(View.VISIBLE);
-                p1HudAttk.setVisibility(View.VISIBLE);
-                p1HudNextAttk.setVisibility(View.VISIBLE);
-                p1HudPrevAttk.setVisibility(View.VISIBLE);
-                clickAnywhereElseButton.setVisibility(View.VISIBLE);
+            if (p1buttons[0].getVisibility() == View.GONE){
+                for (View aView : p1buttons){
+                    aView.setVisibility(View.VISIBLE);
+                }
             }
+//         if it is not this players turn, let an opponent attack
         } else {
+//            get the player whose turn it is
             Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
-            currentPlayersTurn.myKaiju.attack(1,1,tokyo);
+//            player whose turn it is attacks this player
+            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),1,tokyo);
+//            move on to next player
             controller.nextTurn();
-            currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
-            p1HudHp.setText("hp: " + p1.getPlayersKaiju().getHp());
-            p1HudStp.setText("stp: " + p1.getPlayersKaiju().getStp());
+//            update the screen with latest information
+            refreshScreen();
         }
     }
 
-    public void onClickedP2Button(View button){
-        if (controller.getTurn() == 2){
-//            get player stats
-        } else {
-            Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
-            currentPlayersTurn.myKaiju.attack(1,2,tokyo);
-            controller.nextTurn();
-            currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
-        }
+    public void onClickedP1NextAttack(View button){
+//        select next attack in unlocked attack list
+        controller.getCombatant(1).getPlayersKaiju().switchAttack(1);
+//        update the screen with latest information
+        refreshScreen();
     }
+
+    public void onClickedP1PrevAttack(View button){
+//        select next attack in unlocked attack list
+        controller.getCombatant(1).getPlayersKaiju().switchAttack(-1);
+//        update the screen with latest information
+        refreshScreen();
+    }
+
+
+
+
+
+
+
+//    public void onClickedPlayerButton(View button){
+//        int whichPlayer = 0;
+//        if (button == player1Button){
+//            whichPlayer = 1;
+//        }else {
+//            whichPlayer = 2;
+//        }
+//        refactoredCharacterButtonActionsForThisPlayer(whichPlayer);
+//    }
+
+
+
+
 
     public void onClickedAnwhereElseButton(View button){
-        p1HudHp.setVisibility(View.GONE);
-        p1HudStp.setVisibility(View.GONE);
+        p1HudStats.setVisibility(View.GONE);
         p1HudAttk.setVisibility(View.GONE);
         p1HudNextAttk.setVisibility(View.GONE);
         p1HudPrevAttk.setVisibility(View.GONE);
         clickAnywhereElseButton.setVisibility(View.GONE);
+    }
+
+
+
+
+    public void refreshScreen(){
+        currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
+        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
+        p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
     }
 }

@@ -4,12 +4,18 @@ import java.io.Serializable;
 
 public class Player implements Serializable {
 
-    Kaiju myKaiju;
-    Boolean aiControlled;
+    private String pNumber;
+    private Kaiju myKaiju;
+    private Boolean aiControlled;
 
-    public Player(Boolean aiControlled){
+    public Player(String pNumber, Boolean aiControlled){
+        this.pNumber = pNumber;
         this.myKaiju = null;
         this.aiControlled = aiControlled;
+    }
+
+    public String getPNumber() {
+        return pNumber;
     }
 
     public void assignKaiju(Kaiju kaiju){

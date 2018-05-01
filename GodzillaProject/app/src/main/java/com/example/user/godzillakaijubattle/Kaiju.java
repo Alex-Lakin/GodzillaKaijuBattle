@@ -90,6 +90,11 @@ public class Kaiju implements Serializable, IAttackable {
 
     public void switchAttack(int plusOrMinus){
         currentlySelectedAttack += plusOrMinus;
+        if (currentlySelectedAttack >= unlockedAttackList.size()){
+            currentlySelectedAttack = 0;
+        } else if (currentlySelectedAttack < 0) {
+            currentlySelectedAttack = unlockedAttackList.size()-1;
+        }
     }
 
     public String getImageLocation() {
@@ -104,17 +109,15 @@ public class Kaiju implements Serializable, IAttackable {
         this.owner = owner;
     }
 
-    public void attack(int attkNum, int targetNum, City city){
-//        get chosen attack from kaiju's attack array list
-        Attack attack = unlockedAttackList.get(attkNum-1);
+    public void attack(Attack attk, int targetNum, City city){
 //        get chosen target (kaiju or building) from city's target arraylist
         IAttackable opponent = city.getTargets().get(targetNum-1);
 //        if you have enough stp to perform attack
-        if (this.stp >= attack.stpCost){
+        if (this.stp >= attk.stpCost){
 //            lower stp
-            this.stp -= attack.stpCost;
+            this.stp -= attk.stpCost;
 //            damage opponent
-            opponent.setHp(opponent.getHp()-attack.getDmg());
+            opponent.setHp(opponent.getHp()-attk.getDmg());
 //            if opponent's hp is 0 or less
             if (opponent.getHp() <= 0){
 //                get your exp reward
