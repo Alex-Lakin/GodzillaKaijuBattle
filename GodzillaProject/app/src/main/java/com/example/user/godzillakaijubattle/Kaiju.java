@@ -131,7 +131,7 @@ public class Kaiju implements Serializable, IAttackable {
         this.owner = owner;
     }
 
-    public void attack(Attack attk, IAttackable opponent, City city){
+    public boolean attack(Attack attk, IAttackable opponent, City city){
 //        if you have enough stp to perform attack
         if (this.stp >= attk.stpCost){
 //            lower stp
@@ -146,10 +146,10 @@ public class Kaiju implements Serializable, IAttackable {
                 if (this.exp >= (this.lev * this.expGain)){
                     this.increaseLev();
                 }
-//                remove opponent from cities target list
-                city.removeTarget(opponent);
+                return true;
             }
         }
+        return false;
     }
 
 //    public void eatCitizen(City city){

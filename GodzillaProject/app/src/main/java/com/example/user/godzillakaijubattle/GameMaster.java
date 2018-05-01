@@ -120,6 +120,10 @@ public class GameMaster implements Serializable {
         combatants.add(combatant);
     }
 
+    public void removeCombatant(Player combatant) {
+        combatants.remove(combatant);
+    }
+
     public int getTurn() {
         return turn;
     }

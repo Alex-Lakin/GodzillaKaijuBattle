@@ -151,7 +151,22 @@ public class GameActivity extends AppCompatActivity {
             playersButtons = new View[]{};
             target = null;
         }
-        refactoredCharacterButtonActionsForThisPlayer(whichPlayer,playersButtons,target);
+//        go to refactored method
+        boolean aretheydefeated = refactoredCharacterButtonActionsForThisPlayer(whichPlayer,playersButtons,target);
+//        if an opponent is defeated
+        if (aretheydefeated == true){
+            if (whichPlayer == 1){
+                controller.removeCombatant(p1);
+                player1Button.setVisibility(View.GONE);
+            } else if (whichPlayer == 2){
+                controller.removeCombatant(p2);
+                player2Button.setVisibility(View.GONE);
+            }
+//            move to next player
+            controller.nextTurn();
+////        update the screen with latest information
+//            refreshScreen();
+        }
     }
 
     public void onClickedPlayerNextAttack(View button){
@@ -191,7 +206,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void refactoredCharacterButtonActionsForThisPlayer(int p, View[] playersButtons, IAttackable target){
+    public boolean refactoredCharacterButtonActionsForThisPlayer(int p, View[] playersButtons, IAttackable target){
 //        if its this players turn, show them stats and attacks
         if (controller.getTurn() == p){
             if (playersButtons[0].getVisibility() == View.GONE){
@@ -204,12 +219,14 @@ public class GameActivity extends AppCompatActivity {
 //            get the player whose turn it is
             Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
 //            player whose turn it is attacks this player
-            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),target,tokyo);
-//            move on to next player
+            boolean aretheydefeated = currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),target,tokyo);
+//            move to next player
             controller.nextTurn();
 //            update the screen with latest information
             refreshScreen();
+            return aretheydefeated;
         }
+        return false;
     }
 
     public void refreshScreen(){
