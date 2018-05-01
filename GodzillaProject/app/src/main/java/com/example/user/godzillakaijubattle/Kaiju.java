@@ -7,7 +7,9 @@ public class Kaiju implements Serializable, IAttackable {
 
     private String name;
     private int hp;
+    private int hpMax;
     private int stp;
+    private int stpMax;
     private int lev;
     private int exp;
     private int expGain;
@@ -21,7 +23,9 @@ public class Kaiju implements Serializable, IAttackable {
         this.name = name;
         this.lev = lev;
         this.hp = hp*lev;
+        this.hpMax = hp*lev;
         this.stp = stp*lev;
+        this.stpMax = stp*lev;
         this.expGain = expGain*lev;
         this.exp = 0;
         this.unlockedAttackList = new ArrayList<>();
@@ -43,6 +47,10 @@ public class Kaiju implements Serializable, IAttackable {
         this.hp = hp;
     }
 
+    public int getHpMax() {
+        return hpMax;
+    }
+
     public int getStp() {
         return stp;
     }
@@ -51,15 +59,22 @@ public class Kaiju implements Serializable, IAttackable {
         this.stp = stp;
     }
 
+    public int getStpMax() {
+        return stpMax;
+    }
+
     public int getLev() {
         return lev;
     }
 
     public void increaseLev() {
         this.lev ++;
-        this.hp = getHp()*lev;
-        this.stp = getStp()*lev;
+        this.hpMax = getHpMax()*lev;
+        this.hp = getHpMax();
+        this.stpMax = getStpMax()*lev;
+        this.stp = getStpMax();
         this.expGain = getExpGain()*lev;
+//        cycle through locked attacks and transfer to unlocked if at correct level
     }
 
     public int getExp() {

@@ -19,8 +19,11 @@ public class CharacterSelectActivity extends AppCompatActivity {
     Player p2;
     ArrayList<Kaiju> selectableCharacters;
     Kaiju godzilla;
-    Kaiju kingGhidorah;
+    Kaiju rodan;
     Kaiju mothra;
+    Kaiju kingGhidorah;
+    Kaiju gigan;
+    Kaiju mechagodzilla;
     ImageView characterImage;
     TextView characterName;
 
@@ -35,11 +38,17 @@ public class CharacterSelectActivity extends AppCompatActivity {
         selectableCharacters = new ArrayList<>();
         arrayPosition = 0;
         godzilla = controller.godzilla;
-        kingGhidorah = controller.kingGhidorah;
+        rodan = controller.rodan;
         mothra = controller.mothra;
+        kingGhidorah = controller.kingGhidorah;
+        gigan = controller.gigan;
+        mechagodzilla = controller.mechagodzilla;
         selectableCharacters.add(godzilla);
-        selectableCharacters.add(kingGhidorah);
+        selectableCharacters.add(rodan);
         selectableCharacters.add(mothra);
+        selectableCharacters.add(kingGhidorah);
+        selectableCharacters.add(gigan);
+        selectableCharacters.add(mechagodzilla);
 
 //        create players and add them to controllers combatant list
         p1 = new Player("p1",false);

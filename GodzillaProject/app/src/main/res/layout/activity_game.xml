@@ -48,7 +48,7 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <ImageButton
-        android:id="@+id/Building3ImageButtonId"
+        android:id="@+id/building3ImageButtonId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -166,7 +166,7 @@
         android:id="@+id/p1NextAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
-        android:onClick="onClickedP1NextAttack"
+        android:onClick="onClickedPlayerNextAttack"
         android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/p1CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
@@ -176,7 +176,7 @@
         android:id="@+id/p1PrevAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
-        android:onClick="onClickedP1PrevAttack"
+        android:onClick="onClickedPlayerPrevAttack"
         android:scaleX="-1"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@+id/p1CurrentAttackTextViewId"
@@ -209,6 +209,7 @@
         android:id="@+id/p2NextAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
+        android:onClick="onClickedPlayerNextAttack"
         app:layout_constraintStart_toEndOf="@+id/p2CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p2CurrentAttackTextViewId"
         app:srcCompat="@android:drawable/ic_media_play" />
@@ -217,6 +218,7 @@
         android:id="@+id/p2PrevAttkImageButtonId"
         android:layout_width="18dp"
         android:layout_height="20dp"
+        android:onClick="onClickedPlayerPrevAttack"
         android:scaleX="-1"
         app:layout_constraintEnd_toStartOf="@+id/p2CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p2CurrentAttackTextViewId"

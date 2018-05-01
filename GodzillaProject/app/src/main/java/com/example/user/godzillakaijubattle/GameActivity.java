@@ -19,6 +19,14 @@ public class GameActivity extends AppCompatActivity {
     TextView currentTurnText;
     ImageButton clickAnywhereElseButton;
 
+//    buildings
+    Building building1;
+    Building building2;
+    Building building3;
+    ImageButton b1Button;
+    ImageButton b2Button;
+    ImageButton b3Button;
+
 
 //    player 1
     Player p1;
@@ -57,6 +65,15 @@ public class GameActivity extends AppCompatActivity {
         tokyo = new City("Tokyo");
         currentCityText = findViewById(R.id.cityTextViewId);
         currentCityText.setText(tokyo.getName());
+
+//        create buildings
+        building1 = new Building("Tower",30,50);
+        building2 = new Building("Tower",30,50);
+        building3 = new Building("Tower",30,50);
+//        setup building buttons
+        b1Button = findViewById(R.id.building1ImageButtonId);
+        b2Button = findViewById(R.id.building2ImageButtonId);
+        b3Button = findViewById(R.id.building3ImageButtonId);
 
 
 //        set up click anywhere else button
@@ -132,6 +149,42 @@ public class GameActivity extends AppCompatActivity {
         refactoredCharacterButtonActionsForThisPlayer(whichPlayer,playersButtons);
     }
 
+    public void onClickedPlayerNextAttack(View button){
+//        select next attack in unlocked attack list
+        controller.getCombatant(controller.getTurn()).getPlayersKaiju().switchAttack(1);
+//        update the screen with latest information
+        refreshScreen();
+    }
+
+    public void onClickedPlayerPrevAttack(View button){
+//        select next attack in unlocked attack list
+        controller.getCombatant(controller.getTurn()).getPlayersKaiju().switchAttack(-1);
+//        update the screen with latest information
+        refreshScreen();
+    }
+
+//    public void onClickedBuildingButton(View button){
+//        int whichBuilding = 0;
+//        if (button == b1Button){
+//            whichBuilding = 1;
+//        } else if (button == b2Button){
+//            whichBuilding = 2;
+//        } else if (button == b3Button){
+//            whichBuilding = 3;
+//        }
+//        Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
+//        currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),p,tokyo);
+//
+//    }
+
+    public void onClickedAnwhereElseButton(View button){
+        for (View aView : p1buttons){
+            aView.setVisibility(View.GONE);
+        }
+        for (View aView : p2buttons){
+            aView.setVisibility(View.GONE);
+        }
+    }
 
     public void refactoredCharacterButtonActionsForThisPlayer(int p, View[] playersButtons){
 //        if its this players turn, show them stats and attacks
@@ -153,44 +206,6 @@ public class GameActivity extends AppCompatActivity {
             refreshScreen();
         }
     }
-
-    public void onClickedP1NextAttack(View button){
-//        select next attack in unlocked attack list
-        controller.getCombatant(1).getPlayersKaiju().switchAttack(1);
-//        update the screen with latest information
-        refreshScreen();
-    }
-
-    public void onClickedP1PrevAttack(View button){
-//        select next attack in unlocked attack list
-        controller.getCombatant(1).getPlayersKaiju().switchAttack(-1);
-//        update the screen with latest information
-        refreshScreen();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void onClickedAnwhereElseButton(View button){
-        for (View aView : p1buttons){
-            aView.setVisibility(View.GONE);
-        }
-        for (View aView : p2buttons){
-            aView.setVisibility(View.GONE);
-        }
-    }
-
-
-
 
     public void refreshScreen(){
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");

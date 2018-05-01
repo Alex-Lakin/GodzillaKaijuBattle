@@ -16,15 +16,30 @@ public class GameMaster implements Serializable {
     Attack tailStrike;
     Attack atomicBreath;
 
-    Kaiju kingGhidorah;
-    Attack doubleTailWhip;
-    Attack whirlWind;
-    Attack gravityBeams;
+    Kaiju rodan;
+    Attack clawKick;
+    Attack harpoonBeak;
+    Attack swoopingStrike;
 
     Kaiju mothra;
     Attack stinger;
     Attack windGust;
     Attack antennaBeams;
+
+    Kaiju kingGhidorah;
+    Attack doubleTailWhip;
+    Attack whirlWind;
+    Attack gravityBeams;
+
+    Kaiju gigan;
+    Attack bladeSlash;
+    Attack chainsawBelly;
+    Attack eyeLaser;
+
+    Kaiju mechagodzilla;
+    Attack ironClaw;
+    Attack fingerRockets;
+    Attack heatBeam;
 
     public GameMaster(){
         combatants = new ArrayList<Player>();
@@ -42,15 +57,15 @@ public class GameMaster implements Serializable {
         godzilla.addAttack(atomicBreath);
         godzilla.unlockNextAttack();
 
-//        setup King Ghidorah
-        kingGhidorah = new Kaiju("King Ghidorah", 50, 100,1, 110,"king_ghidorah");
-        doubleTailWhip = new Attack("Double Tail Whips", 10,10,1);
-        whirlWind = new Attack("Whirl Wind", 30,40,2);
-        gravityBeams = new Attack("Gravity Beams", 50,60,3);
-        kingGhidorah.addAttack(doubleTailWhip);
-        kingGhidorah.addAttack(whirlWind);
-        kingGhidorah.addAttack(gravityBeams);
-        kingGhidorah.unlockNextAttack();
+//        setup Rodan
+        rodan = new Kaiju("Rodan",50,100,1,100,"rodan");
+        clawKick = new Attack("Claw Kick", 10,10,1);
+        harpoonBeak = new Attack("Harpoon Beak", 20,30,2);
+        swoopingStrike = new Attack("Swooping Strike", 30,50,3);
+        rodan.addAttack(clawKick);
+        rodan.addAttack(harpoonBeak);
+        rodan.addAttack(swoopingStrike);
+        rodan.unlockNextAttack();
 
 //        setup mothra
         mothra = new Kaiju("Mothra", 50, 100,1, 110,"mothra");
@@ -61,6 +76,36 @@ public class GameMaster implements Serializable {
         mothra.addAttack(windGust);
         mothra.addAttack(antennaBeams);
         mothra.unlockNextAttack();
+
+//        setup King Ghidorah
+        kingGhidorah = new Kaiju("King Ghidorah", 50, 100,1, 110,"king_ghidorah");
+        doubleTailWhip = new Attack("Double Tail Whips", 10,10,1);
+        whirlWind = new Attack("Whirl Wind", 30,40,2);
+        gravityBeams = new Attack("Gravity Beams", 50,60,3);
+        kingGhidorah.addAttack(doubleTailWhip);
+        kingGhidorah.addAttack(whirlWind);
+        kingGhidorah.addAttack(gravityBeams);
+        kingGhidorah.unlockNextAttack();
+
+//        setup Gigan
+        gigan = new Kaiju("Gigan", 50, 100,1, 110,"gigan");
+        bladeSlash = new Attack("Blade Slash", 10,10,1);
+        chainsawBelly = new Attack("Chainsaw Belly", 30,40,2);
+        eyeLaser = new Attack("Eye Laser", 50,60,3);
+        gigan.addAttack(bladeSlash);
+        gigan.addAttack(chainsawBelly);
+        gigan.addAttack(eyeLaser);
+        gigan.unlockNextAttack();
+
+//        setup Mechagodzilla
+        mechagodzilla = new Kaiju("Mechagodzilla", 50, 100,1, 110,"mechagodzilla");
+        ironClaw = new Attack("Iron Claw", 10,10,1);
+        fingerRockets = new Attack("Finger Rockets", 30,40,2);
+        heatBeam = new Attack("Heat Beam", 50,60,3);
+        mechagodzilla.addAttack(ironClaw);
+        mechagodzilla.addAttack(fingerRockets);
+        mechagodzilla.addAttack(heatBeam);
+        mechagodzilla.unlockNextAttack();
     }
 
     public ArrayList<Player> getAllCombatants() {
