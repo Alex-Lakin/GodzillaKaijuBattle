@@ -55,7 +55,7 @@ public class GameMaster implements Serializable {
         godzilla.addAttack(clawSlash);
         godzilla.addAttack(tailStrike);
         godzilla.addAttack(atomicBreath);
-        godzilla.unlockNextAttack();
+        godzilla.addFirstAttack();
 
 //        setup Rodan
         rodan = new Kaiju("Rodan",50,100,1,100,"rodan");
@@ -65,7 +65,7 @@ public class GameMaster implements Serializable {
         rodan.addAttack(clawKick);
         rodan.addAttack(harpoonBeak);
         rodan.addAttack(swoopingStrike);
-        rodan.unlockNextAttack();
+        rodan.addFirstAttack();
 
 //        setup mothra
         mothra = new Kaiju("Mothra", 50, 100,1, 110,"mothra");
@@ -75,7 +75,7 @@ public class GameMaster implements Serializable {
         mothra.addAttack(stinger);
         mothra.addAttack(windGust);
         mothra.addAttack(antennaBeams);
-        mothra.unlockNextAttack();
+        mothra.addFirstAttack();
 
 //        setup King Ghidorah
         kingGhidorah = new Kaiju("King Ghidorah", 50, 100,1, 110,"king_ghidorah");
@@ -85,7 +85,7 @@ public class GameMaster implements Serializable {
         kingGhidorah.addAttack(doubleTailWhip);
         kingGhidorah.addAttack(whirlWind);
         kingGhidorah.addAttack(gravityBeams);
-        kingGhidorah.unlockNextAttack();
+        kingGhidorah.addFirstAttack();
 
 //        setup Gigan
         gigan = new Kaiju("Gigan", 50, 100,1, 110,"gigan");
@@ -95,7 +95,7 @@ public class GameMaster implements Serializable {
         gigan.addAttack(bladeSlash);
         gigan.addAttack(chainsawBelly);
         gigan.addAttack(eyeLaser);
-        gigan.unlockNextAttack();
+        gigan.addFirstAttack();
 
 //        setup Mechagodzilla
         mechagodzilla = new Kaiju("Mechagodzilla", 50, 100,1, 110,"mechagodzilla");
@@ -105,7 +105,7 @@ public class GameMaster implements Serializable {
         mechagodzilla.addAttack(ironClaw);
         mechagodzilla.addAttack(fingerRockets);
         mechagodzilla.addAttack(heatBeam);
-        mechagodzilla.unlockNextAttack();
+        mechagodzilla.addFirstAttack();
     }
 
     public ArrayList<Player> getAllCombatants() {

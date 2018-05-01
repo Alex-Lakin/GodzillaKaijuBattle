@@ -75,6 +75,12 @@ public class Kaiju implements Serializable, IAttackable {
         this.stp = getStpMax();
         this.expGain = getExpGain()*lev;
 //        cycle through locked attacks and transfer to unlocked if at correct level
+        for (int i = 0; i < lockedAttackList.size(); i++){
+            if (lockedAttackList.get(i).levLock == this.lev){
+                unlockedAttackList.add(lockedAttackList.get(i));
+                lockedAttackList.remove(i);
+            }
+        }
     }
 
     public int getExp() {
@@ -85,18 +91,12 @@ public class Kaiju implements Serializable, IAttackable {
         this.exp += newexp;
     }
 
-//    @Override
     public int getExpGain() {
         return expGain;
     }
 
     public void addAttack(Attack atk) {
         lockedAttackList.add(atk);
-    }
-
-    public void unlockNextAttack() {
-        unlockedAttackList.add(lockedAttackList.get(0));
-        lockedAttackList.remove(0);
     }
 
     public Attack getCurrentAttack(){
@@ -112,6 +112,13 @@ public class Kaiju implements Serializable, IAttackable {
         }
     }
 
+    public void addFirstAttack(){
+        if (unlockedAttackList.size() == 0) {
+            unlockedAttackList.add(lockedAttackList.get(0));
+            lockedAttackList.remove(0);
+        }
+    }
+
     public String getImageLocation() {
         return imageLocation;
     }
@@ -124,9 +131,7 @@ public class Kaiju implements Serializable, IAttackable {
         this.owner = owner;
     }
 
-    public void attack(Attack attk, int targetNum, City city){
-//        get chosen target (kaiju or building) from city's target arraylist
-        IAttackable opponent = city.getTargets().get(targetNum-1);
+    public void attack(Attack attk, IAttackable opponent, City city){
 //        if you have enough stp to perform attack
         if (this.stp >= attk.stpCost){
 //            lower stp
