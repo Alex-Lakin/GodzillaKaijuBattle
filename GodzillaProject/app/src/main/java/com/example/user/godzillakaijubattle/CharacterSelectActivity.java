@@ -20,6 +20,7 @@ public class CharacterSelectActivity extends AppCompatActivity {
     ArrayList<Kaiju> selectableCharacters;
     Kaiju godzilla;
     Kaiju kingGhidorah;
+    Kaiju mothra;
     ImageView characterImage;
     TextView characterName;
 
@@ -35,8 +36,10 @@ public class CharacterSelectActivity extends AppCompatActivity {
         arrayPosition = 0;
         godzilla = controller.godzilla;
         kingGhidorah = controller.kingGhidorah;
+        mothra = controller.mothra;
         selectableCharacters.add(godzilla);
         selectableCharacters.add(kingGhidorah);
+        selectableCharacters.add(mothra);
 
 //        create players and add them to controllers combatant list
         p1 = new Player("p1",false);
@@ -44,7 +47,7 @@ public class CharacterSelectActivity extends AppCompatActivity {
         controller.addCombatant(p1);
 
         p2 = new Player("p2",true);
-        p2.assignKaiju(godzilla);
+        p2.assignKaiju(kingGhidorah);
         controller.addCombatant(p2);
 
 //        set up character name and image and set godzilla to default

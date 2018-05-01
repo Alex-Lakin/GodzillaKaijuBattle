@@ -144,9 +144,9 @@ public class GameActivity extends AppCompatActivity {
 //         if it is not this players turn, let an opponent attack
         } else {
 //            get the player whose turn it is
-            Player currentPlayersTurn = controller.getCombatant(controller.getTurn()-1);
+            Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
 //            player whose turn it is attacks this player
-            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),p-1,tokyo);
+            currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),p,tokyo);
 //            move on to next player
             controller.nextTurn();
 //            update the screen with latest information

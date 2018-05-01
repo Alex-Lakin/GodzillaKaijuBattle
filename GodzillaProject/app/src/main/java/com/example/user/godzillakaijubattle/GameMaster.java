@@ -21,6 +21,11 @@ public class GameMaster implements Serializable {
     Attack whirlWind;
     Attack gravityBeams;
 
+    Kaiju mothra;
+    Attack stinger;
+    Attack windGust;
+    Attack antennaBeams;
+
     public GameMaster(){
         combatants = new ArrayList<Player>();
         turn = 0;
@@ -28,7 +33,7 @@ public class GameMaster implements Serializable {
         currentCity = null;
 
 //        setup Godzilla
-        godzilla = new Kaiju("Godzilla",50,20,1,100,"godzilla");
+        godzilla = new Kaiju("Godzilla",50,100,1,100,"godzilla");
         clawSlash = new Attack("Claw Slash", 10,10,1);
         tailStrike = new Attack("Tail Strike", 20,30,2);
         atomicBreath = new Attack("Atomic Breath", 30,50,3);
@@ -38,14 +43,24 @@ public class GameMaster implements Serializable {
         godzilla.unlockNextAttack();
 
 //        setup King Ghidorah
-        kingGhidorah = new Kaiju("King Ghidorah", 60, 15,1, 110,"king_ghidorah");
-        doubleTailWhip = new Attack("Double Tail Whips", 20,40,1);
+        kingGhidorah = new Kaiju("King Ghidorah", 50, 100,1, 110,"king_ghidorah");
+        doubleTailWhip = new Attack("Double Tail Whips", 10,10,1);
         whirlWind = new Attack("Whirl Wind", 30,40,2);
         gravityBeams = new Attack("Gravity Beams", 50,60,3);
         kingGhidorah.addAttack(doubleTailWhip);
         kingGhidorah.addAttack(whirlWind);
         kingGhidorah.addAttack(gravityBeams);
         kingGhidorah.unlockNextAttack();
+
+//        setup mothra
+        mothra = new Kaiju("Mothra", 50, 100,1, 110,"mothra");
+        stinger = new Attack("Stinger", 10,10,1);
+        windGust = new Attack("Wind Gust", 30,40,2);
+        antennaBeams = new Attack("Antenna Beams", 50,60,3);
+        mothra.addAttack(stinger);
+        mothra.addAttack(windGust);
+        mothra.addAttack(antennaBeams);
+        mothra.unlockNextAttack();
     }
 
     public ArrayList<Player> getAllCombatants() {
