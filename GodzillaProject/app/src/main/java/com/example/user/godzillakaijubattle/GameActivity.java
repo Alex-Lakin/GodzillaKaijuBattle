@@ -137,11 +137,7 @@ public class GameActivity extends AppCompatActivity {
 
 //        testing
         testText = findViewById(R.id.TestTextView);
-        buildingArray = "";
-        for (IAttackable building : tokyo.getBuildings()){
-            buildingArray += building.getName();
-        }
-        testText.setText(buildingArray);
+        testText.setText("");
     }
 
 
@@ -162,7 +158,7 @@ public class GameActivity extends AppCompatActivity {
             target = null;
         }
 //        go to refactored method
-        boolean aretheydefeated = refactoredCharacterButtonActionsForThisPlayer(whichPlayer,playersButtons,target);
+        boolean aretheydefeated = attackOrShowStats(whichPlayer,playersButtons,target);
 //        if an opponent is defeated
         if (aretheydefeated == true){
             if (whichPlayer == 1){
@@ -203,7 +199,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 //        go to refactored method
-        boolean isItDestroyed = refactoredCharacterButtonActionsForThisPlayer(whichBuilding, new View[]{}, target);
+        boolean isItDestroyed = attackOrShowStats(whichBuilding, new View[]{}, target);
 //        if a building is destroyed
         if (isItDestroyed == true) {
             for (int i = 0; i < buildingButtons.size(); i++){
@@ -213,13 +209,6 @@ public class GameActivity extends AppCompatActivity {
                     buildingButtons.remove(i);
                 }
             }
-
-            buildingArray = "";
-            for (IAttackable building : tokyo.getBuildings()){
-                buildingArray += building.getName();
-            }
-            testText.setText(buildingArray);
-
 //        update the screen with latest information
             refreshScreen();
         }
@@ -234,7 +223,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public boolean refactoredCharacterButtonActionsForThisPlayer(int p, View[] playersButtons, IAttackable target){
+    public boolean attackOrShowStats(int p, View[] playersButtons, IAttackable target){
 //        if its this players turn, show them stats and attacks
         if (controller.getTurn() == p){
             if (playersButtons[0].getVisibility() == View.GONE){
