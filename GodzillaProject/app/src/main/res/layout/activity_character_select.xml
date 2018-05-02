@@ -7,57 +7,59 @@
     tools:context=".CharacterSelectActivity">
 
     <ImageView
-        android:id="@+id/characterImageViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:scaleX="2"
-        android:scaleY="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.328"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <ImageButton
-        android:id="@+id/previousCharacterButtonId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="184dp"
-        android:layout_marginStart="184dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickPreviousButton"
-        android:scaleX="-1"
-        android:scaleY="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <ImageButton
-        android:id="@+id/nextCharacterButtonId2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="onClickNextButton"
+        android:id="@+id/p1CharacterImageViewId"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:scaleX="1"
         android:scaleY="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.364"
-        app:layout_constraintStart_toEndOf="@+id/previousCharacterButtonId"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936"
+        app:layout_constraintVertical_bias="0.050000012"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <ImageButton
+        android:id="@+id/p1PreviousCharacterButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClickPreviousButton"
+        android:scaleX="-1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toBottomOf="@+id/p1CharacterNameTextViewId"
+        app:layout_constraintEnd_toStartOf="@+id/p1CharacterNameTextViewId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/p1CharacterNameTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/p1NextCharacterButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClickNextButton"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toBottomOf="@+id/p1CharacterNameTextViewId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/p1CharacterNameTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p1CharacterNameTextViewId"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
-        android:id="@+id/CharacterNameTextViewId"
+        android:id="@+id/p1CharacterNameTextViewId"
         android:layout_width="100dp"
         android:layout_height="44dp"
         android:layout_marginBottom="8dp"
@@ -66,13 +68,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="character name here"
         android:gravity="center"
+        android:text="character name here"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/nextCharacterButtonId2"
-        app:layout_constraintStart_toEndOf="@+id/previousCharacterButtonId"
-        app:layout_constraintTop_toBottomOf="@+id/characterImageViewId"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintEnd_toEndOf="@+id/p1CharacterImageViewId"
+        app:layout_constraintStart_toStartOf="@+id/p1CharacterImageViewId"
+        app:layout_constraintTop_toBottomOf="@+id/p1CharacterImageViewId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/playButtonId"
@@ -89,8 +91,73 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toEndOf="@+id/nextCharacterButtonId2"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.967" />
+
+    <ImageView
+        android:id="@+id/p2CharacterImageViewId"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.050000012"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/p2CharacterNameTextViewId"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="character name here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/p2CharacterImageViewId"
+        app:layout_constraintStart_toStartOf="@+id/p2CharacterImageViewId"
+        app:layout_constraintTop_toBottomOf="@+id/p2CharacterImageViewId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/p2NextCharacterButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClickNextButton"
+        app:layout_constraintBottom_toBottomOf="@+id/p2CharacterNameTextViewId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/p2CharacterNameTextViewId"
+        app:layout_constraintTop_toTopOf="@+id/p2CharacterNameTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <ImageButton
+        android:id="@+id/p2PreviousCharacterButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="onClickPreviousButton"
+        android:scaleX="-1"
+        app:layout_constraintBottom_toBottomOf="@+id/p2CharacterNameTextViewId"
+        app:layout_constraintEnd_toStartOf="@+id/p2CharacterNameTextViewId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/p2CharacterNameTextViewId"
+        app:srcCompat="@android:drawable/ic_media_play" />
 </android.support.constraint.ConstraintLayout>

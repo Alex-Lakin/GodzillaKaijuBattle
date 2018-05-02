@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class City {
     private String name;
-//    private ArrayList<Citizen> citizens;
+    private ArrayList<Citizen> citizens;
     private ArrayList<IAttackable> buildings;
 
     public City(String name){
         this.name = name;
-//        this.citizens = new ArrayList<>();
+        this.citizens = new ArrayList<>();
         this.buildings = new ArrayList<>();
     }
 
@@ -17,12 +17,12 @@ public class City {
         return name;
     }
 
-//    public void addCitizen(Citizen citizen) {
-//        citizens.add(citizen);
-//    }
-//    public ArrayList<Citizen> getCitizens() {
-//        return citizens;
-//    }
+    public void addCitizen(Citizen citizen) {
+        citizens.add(citizen);
+    }
+    public ArrayList<Citizen> getCitizens() {
+        return citizens;
+    }
 
     public void addBuilding(IAttackable building) {
         buildings.add(building);

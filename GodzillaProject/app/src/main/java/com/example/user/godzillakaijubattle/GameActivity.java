@@ -1,6 +1,7 @@
 package com.example.user.godzillakaijubattle;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,6 +59,8 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
 //        get game controller from prev screen
         Intent g = getIntent();
         Bundle extras = g.getExtras();
@@ -69,9 +72,9 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building(" 1 ",30,50);
-        building2 = new Building(" 2 ",30,50);
-        building3 = new Building(" 3 ",30,50);
+        building1 = new Building(" 1 ",30,100);
+        building2 = new Building(" 2 ",30,100);
+        building3 = new Building(" 3 ",30,100);
 //        setup building buttons
         b1Button = findViewById(R.id.building1ImageButtonId);
         b2Button = findViewById(R.id.building2ImageButtonId);
@@ -144,7 +147,7 @@ public class GameActivity extends AppCompatActivity {
     public void onClickedPlayerButton(View button){
         int whichPlayer = 0;
         View[] playersButtons;
-        IAttackable target;
+        IAttackable target = null;
         if (button == player1Button){
             whichPlayer = 1;
             playersButtons = p1buttons;
@@ -155,7 +158,6 @@ public class GameActivity extends AppCompatActivity {
             target = p2.getPlayersKaiju();
         } else {
             playersButtons = new View[]{};
-            target = null;
         }
 //        go to refactored method
         boolean aretheydefeated = attackOrShowStats(whichPlayer,playersButtons,target);

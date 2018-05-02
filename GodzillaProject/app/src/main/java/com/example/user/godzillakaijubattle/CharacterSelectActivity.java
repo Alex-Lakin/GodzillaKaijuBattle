@@ -1,11 +1,11 @@
 package com.example.user.godzillakaijubattle;
 
 import android.content.Intent;
-import android.media.Image;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,30 +13,41 @@ import java.util.ArrayList;
 
 public class CharacterSelectActivity extends AppCompatActivity {
 
-    int arrayPosition;
+
     GameMaster controller;
     Player p1;
     Player p2;
     ArrayList<Kaiju> selectableCharacters;
+    int p1ArrayPosition;
+    int p2ArrayPosition;
     Kaiju godzilla;
     Kaiju rodan;
     Kaiju mothra;
     Kaiju kingGhidorah;
     Kaiju gigan;
     Kaiju mechagodzilla;
-    ImageView characterImage;
-    TextView characterName;
+    ImageView p1CharacterImage;
+    TextView p1CharacterName;
+    ImageButton p1Next;
+    ImageButton p1Prev;
+    ImageView p2CharacterImage;
+    TextView p2CharacterName;
+    ImageButton p2Next;
+    ImageButton p2Prev;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_select);
 
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         controller = new GameMaster();
 
 //        set up selectable characters
         selectableCharacters = new ArrayList<>();
-        arrayPosition = 0;
+        p1ArrayPosition = 0;
+        p2ArrayPosition = 1;
         godzilla = controller.godzilla;
         rodan = controller.rodan;
         mothra = controller.mothra;
@@ -56,37 +67,63 @@ public class CharacterSelectActivity extends AppCompatActivity {
         controller.addCombatant(p1);
 
         p2 = new Player("p2",true);
-        p2.assignKaiju(kingGhidorah);
+        p2.assignKaiju(rodan);
         controller.addCombatant(p2);
 
-//        set up character name and image and set godzilla to default
-        characterImage = findViewById(R.id.characterImageViewId);
-        characterImage.setImageResource(R.drawable.godzilla);
-        characterName = findViewById(R.id.CharacterNameTextViewId);
-        characterName.setText(godzilla.getName());
+//        set up player 1's character name and image and set godzilla to default
+        p1CharacterImage = findViewById(R.id.p1CharacterImageViewId);
+        p1CharacterImage.setImageResource(R.drawable.godzilla);
+        p1CharacterName = findViewById(R.id.p1CharacterNameTextViewId);
+        p1CharacterName.setText(godzilla.getName());
+        p1Next = findViewById(R.id.p1NextCharacterButtonId);
+        p1Prev = findViewById(R.id.p1PreviousCharacterButtonId);
+//        set up player 1's character name and image and set godzilla to default
+        p2CharacterImage = findViewById(R.id.p2CharacterImageViewId);
+        p2CharacterImage.setImageResource(R.drawable.rodan);
+        p2CharacterName = findViewById(R.id.p2CharacterNameTextViewId);
+        p2CharacterName.setText(rodan.getName());
+        p2Next = findViewById(R.id.p2NextCharacterButtonId);
+        p2Prev = findViewById(R.id.p2PreviousCharacterButtonId);
     }
 
     public void onClickNextButton(View button){
-        arrayPosition ++;
-        if (arrayPosition >= selectableCharacters.size()){
-            arrayPosition = 0;
+        if (button == p1Next){
+            p1ArrayPosition ++;
+            if (p1ArrayPosition >= selectableCharacters.size()){
+                p1ArrayPosition = 0;
+            }
+            changeCharacter(p1,p1ArrayPosition,p1CharacterImage,p1CharacterName);
+        } else if (button == p2Next) {
+            p2ArrayPosition++;
+            if (p2ArrayPosition >= selectableCharacters.size()) {
+                p2ArrayPosition = 0;
+            }
+            changeCharacter(p2,p2ArrayPosition,p2CharacterImage,p2CharacterName);
         }
-        changeCharacter();
     }
+
 
     public void onClickPreviousButton(View button){
-        arrayPosition --;
-        if (arrayPosition < 0){
-            arrayPosition = (selectableCharacters.size()-1);
+        if (button == p1Prev) {
+            p1ArrayPosition--;
+            if (p1ArrayPosition < 0) {
+                p1ArrayPosition = (selectableCharacters.size() - 1);
+            }
+            changeCharacter(p1,p1ArrayPosition,p1CharacterImage,p1CharacterName);
+        } else if (button == p2Prev){
+            p2ArrayPosition--;
+            if (p2ArrayPosition < 0) {
+                p2ArrayPosition = (selectableCharacters.size() - 1);
+            }
+            changeCharacter(p2,p2ArrayPosition,p2CharacterImage,p2CharacterName);
         }
-        changeCharacter();
     }
 
-    public void changeCharacter() {
-        p1.assignKaiju(selectableCharacters.get(arrayPosition));
-        characterName.setText(p1.getPlayersKaiju().getName());
-        int resourceId = getResources().getIdentifier(p1.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
-        characterImage.setImageResource(resourceId);
+    public void changeCharacter(Player p,int pPos, ImageView pPic,TextView pName) {
+        p.assignKaiju(selectableCharacters.get(pPos));
+        pName.setText(p.getPlayersKaiju().getName());
+        int resourceId = getResources().getIdentifier(p.getPlayersKaiju().getImageLocation(), "drawable", getPackageName());
+        pPic.setImageResource(resourceId);
     }
 
     public void onClickPlayButton(View button){
