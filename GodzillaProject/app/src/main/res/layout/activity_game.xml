@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/tokyo" />
+
     <ImageButton
         android:id="@+id/player2ImageButtonId"
         android:layout_width="wrap_content"
@@ -54,12 +70,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickedBuildingButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719"
+        app:layout_constraintVertical_bias="0.74"
         app:srcCompat="@drawable/building3" />
 
     <ImageButton
@@ -69,12 +86,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickedBuildingButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703"
+        app:layout_constraintVertical_bias="0.72"
         app:srcCompat="@drawable/building2" />
 
     <ImageButton
@@ -84,12 +102,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickedBuildingButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.763"
+        app:layout_constraintVertical_bias="0.78"
         app:srcCompat="@drawable/building1" />
 
     <TextView
@@ -146,6 +165,28 @@
         app:layout_constraintStart_toStartOf="@+id/player1ImageButtonId"
         app:layout_constraintTop_toBottomOf="@+id/player1ImageButtonId" />
 
+    <TextView
+        android:id="@+id/p2StatsTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CharactersHpHere"
+        app:layout_constraintBottom_toTopOf="@+id/player2ImageButtonId"
+        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId" />
+
+    <TextView
+        android:id="@+id/p2CurrentAttackTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="current attack"
+        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
+        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId"
+        app:layout_constraintTop_toBottomOf="@+id/player2ImageButtonId" />
+
     <ImageButton
         android:id="@+id/clickAnywhereElseImageButtonId"
         android:layout_width="771dp"
@@ -182,28 +223,6 @@
         app:layout_constraintEnd_toStartOf="@+id/p1CurrentAttackTextViewId"
         app:layout_constraintTop_toTopOf="@+id/p1CurrentAttackTextViewId"
         app:srcCompat="@android:drawable/ic_media_play" />
-
-    <TextView
-        android:id="@+id/p2StatsTextViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CharactersHpHere"
-        app:layout_constraintBottom_toTopOf="@+id/player2ImageButtonId"
-        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
-        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId" />
-
-    <TextView
-        android:id="@+id/p2CurrentAttackTextViewId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text="current attack"
-        app:layout_constraintEnd_toEndOf="@+id/player2ImageButtonId"
-        app:layout_constraintStart_toStartOf="@+id/player2ImageButtonId"
-        app:layout_constraintTop_toBottomOf="@+id/player2ImageButtonId" />
 
     <ImageButton
         android:id="@+id/p2NextAttkImageButtonId"

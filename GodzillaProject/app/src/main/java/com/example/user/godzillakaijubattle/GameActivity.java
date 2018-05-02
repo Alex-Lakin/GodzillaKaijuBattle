@@ -67,13 +67,17 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building("Tower",30,50);
-        building2 = new Building("Tower",30,50);
-        building3 = new Building("Tower",30,50);
-//        setup building buttons
+        building1 = new Building("1",30,50);
+        building2 = new Building("2",30,50);
+        building3 = new Building("3",30,50);
+//        setup building buttons todo put these vvv in an array
         b1Button = findViewById(R.id.building1ImageButtonId);
         b2Button = findViewById(R.id.building2ImageButtonId);
         b3Button = findViewById(R.id.building3ImageButtonId);
+//        add buildings to city
+        tokyo.addBuilding(building1);
+        tokyo.addBuilding(building2);
+        tokyo.addBuilding(building3);
 
 
 //        set up click anywhere else button
@@ -83,11 +87,6 @@ public class GameActivity extends AppCompatActivity {
 //        get players
         p1 = controller.getCombatant(1);
         p2 = controller.getCombatant(2);
-
-
-        tokyo.addTarget(controller.getCombatant(1).getPlayersKaiju());
-        tokyo.addTarget(controller.getCombatant(2).getPlayersKaiju());
-
 
 //        setup player character buttons
         player1Button = findViewById(R.id.player1ImageButtonId);
@@ -183,19 +182,40 @@ public class GameActivity extends AppCompatActivity {
         refreshScreen();
     }
 
-//    public void onClickedBuildingButton(View button){
-//        int whichBuilding = 0;
-//        if (button == b1Button){
-//            whichBuilding = 1;
-//        } else if (button == b2Button){
-//            whichBuilding = 2;
-//        } else if (button == b3Button){
-//            whichBuilding = 3;
-//        }
-//        Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
-//        currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),p,tokyo);
-//
-//    }
+    public void onClickedBuildingButton(View button) {
+        int whichBuilding = 0;
+        IAttackable target;
+//        todo: you can refactor this by adding all buildings to an array and looping through it, put i in get targets.get and i+5 in whichbuilding
+        if (button == b1Button) {
+            whichBuilding = 5;
+            target = tokyo.getBuildings().get(whichBuilding - 5);
+        } else if (button == b2Button) {
+            whichBuilding = 6;
+            target = tokyo.getBuildings().get(whichBuilding - 5);
+        } else if (button == b3Button) {
+            whichBuilding = 7;
+            target = tokyo.getBuildings().get(whichBuilding - 5);
+        } else {
+            target = null;
+        }
+//        go to refactored method
+        boolean isItDestroyed = refactoredCharacterButtonActionsForThisPlayer(whichBuilding, new View[]{}, target);
+//        if a building is destroyed
+        if (isItDestroyed == true) {
+            if (whichBuilding == 5) {
+                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
+                b1Button.setVisibility(View.GONE);
+            } else if (whichBuilding == 6) {
+                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
+                b2Button.setVisibility(View.GONE);
+            } else if (whichBuilding == 7) {
+                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
+                b3Button.setVisibility(View.GONE);
+            }
+//        update the screen with latest information
+            refreshScreen();
+        }
+    }
 
     public void onClickedAnwhereElseButton(View button){
         for (View aView : p1buttons){
