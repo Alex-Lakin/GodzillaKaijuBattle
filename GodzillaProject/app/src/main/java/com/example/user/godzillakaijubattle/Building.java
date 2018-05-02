@@ -16,7 +16,7 @@ public class Building implements IAttackable {
 //        this.occupants = new ArrayList<>();
     }
 
-    public String getBuildingType() {
+    public String getName() {
         return buildingType;
     }
 

@@ -48,7 +48,7 @@ public class GameMaster implements Serializable {
         currentCity = null;
 
 //        setup Godzilla
-        godzilla = new Kaiju("Godzilla",50,100,1,100,"godzilla");
+        godzilla = new Kaiju("Godzilla",50,20,1,100,"godzilla");
         clawSlash = new Attack("Claw Slash", 10,10,1);
         tailStrike = new Attack("Tail Strike", 20,30,2);
         atomicBreath = new Attack("Atomic Breath", 30,50,3);
@@ -58,7 +58,7 @@ public class GameMaster implements Serializable {
         godzilla.addFirstAttack();
 
 //        setup Rodan
-        rodan = new Kaiju("Rodan",50,100,1,100,"rodan");
+        rodan = new Kaiju("Rodan",50,20,1,100,"rodan");
         clawKick = new Attack("Claw Kick", 10,10,1);
         harpoonBeak = new Attack("Harpoon Beak", 20,30,2);
         swoopingStrike = new Attack("Swooping Strike", 30,50,3);
@@ -68,7 +68,7 @@ public class GameMaster implements Serializable {
         rodan.addFirstAttack();
 
 //        setup mothra
-        mothra = new Kaiju("Mothra", 50, 100,1, 110,"mothra");
+        mothra = new Kaiju("Mothra", 50, 20,1, 110,"mothra");
         stinger = new Attack("Stinger", 10,10,1);
         windGust = new Attack("Wind Gust", 30,40,2);
         antennaBeams = new Attack("Antenna Beams", 50,60,3);
@@ -78,7 +78,7 @@ public class GameMaster implements Serializable {
         mothra.addFirstAttack();
 
 //        setup King Ghidorah
-        kingGhidorah = new Kaiju("King Ghidorah", 50, 100,1, 110,"king_ghidorah");
+        kingGhidorah = new Kaiju("King Ghidorah", 50, 20,1, 110,"king_ghidorah");
         doubleTailWhip = new Attack("Double Tail Whips", 10,10,1);
         whirlWind = new Attack("Whirl Wind", 30,40,2);
         gravityBeams = new Attack("Gravity Beams", 50,60,3);
@@ -88,7 +88,7 @@ public class GameMaster implements Serializable {
         kingGhidorah.addFirstAttack();
 
 //        setup Gigan
-        gigan = new Kaiju("Gigan", 50, 100,1, 110,"gigan");
+        gigan = new Kaiju("Gigan", 50, 20,1, 110,"gigan");
         bladeSlash = new Attack("Blade Slash", 10,10,1);
         chainsawBelly = new Attack("Chainsaw Belly", 30,40,2);
         eyeLaser = new Attack("Eye Laser", 50,60,3);
@@ -98,7 +98,7 @@ public class GameMaster implements Serializable {
         gigan.addFirstAttack();
 
 //        setup Mechagodzilla
-        mechagodzilla = new Kaiju("Mechagodzilla", 50, 100,1, 110,"mechagodzilla");
+        mechagodzilla = new Kaiju("Mechagodzilla", 50, 20,1, 110,"mechagodzilla");
         ironClaw = new Attack("Iron Claw", 10,10,1);
         fingerRockets = new Attack("Finger Rockets", 30,40,2);
         heatBeam = new Attack("Heat Beam", 50,60,3);
@@ -133,6 +133,9 @@ public class GameMaster implements Serializable {
         if (turn > combatants.size()) {
             turn = 1;
             round ++;
+            for (Player combatant : combatants){
+                combatant.getPlayersKaiju().regenStp();
+            }
         }
     }
 

@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
     ImageButton b1Button;
     ImageButton b2Button;
     ImageButton b3Button;
+    ArrayList<View> buildingButtons;
 
 
 //    player 1
@@ -50,6 +51,7 @@ public class GameActivity extends AppCompatActivity {
 
 //    testing
     TextView testText;
+    String buildingArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,13 +69,18 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building("1",30,50);
-        building2 = new Building("2",30,50);
-        building3 = new Building("3",30,50);
-//        setup building buttons todo put these vvv in an array
+        building1 = new Building(" 1 ",30,50);
+        building2 = new Building(" 2 ",30,50);
+        building3 = new Building(" 3 ",30,50);
+//        setup building buttons
         b1Button = findViewById(R.id.building1ImageButtonId);
         b2Button = findViewById(R.id.building2ImageButtonId);
         b3Button = findViewById(R.id.building3ImageButtonId);
+        buildingButtons = new ArrayList<>();
+        buildingButtons.add(b1Button);
+        buildingButtons.add(b2Button);
+        buildingButtons.add(b3Button);
+
 //        add buildings to city
         tokyo.addBuilding(building1);
         tokyo.addBuilding(building2);
@@ -130,7 +137,11 @@ public class GameActivity extends AppCompatActivity {
 
 //        testing
         testText = findViewById(R.id.TestTextView);
-        testText.setText("test");
+        buildingArray = "";
+        for (IAttackable building : tokyo.getBuildings()){
+            buildingArray += building.getName();
+        }
+        testText.setText(buildingArray);
     }
 
 
@@ -184,34 +195,31 @@ public class GameActivity extends AppCompatActivity {
 
     public void onClickedBuildingButton(View button) {
         int whichBuilding = 0;
-        IAttackable target;
-//        todo: you can refactor this by adding all buildings to an array and looping through it, put i in get targets.get and i+5 in whichbuilding
-        if (button == b1Button) {
-            whichBuilding = 5;
-            target = tokyo.getBuildings().get(whichBuilding - 5);
-        } else if (button == b2Button) {
-            whichBuilding = 6;
-            target = tokyo.getBuildings().get(whichBuilding - 5);
-        } else if (button == b3Button) {
-            whichBuilding = 7;
-            target = tokyo.getBuildings().get(whichBuilding - 5);
-        } else {
-            target = null;
+        IAttackable target = null;
+        for (int i = 0; i < buildingButtons.size(); i++){
+            if (button == buildingButtons.get(i)) {
+                whichBuilding = i + 5;
+                target = tokyo.getBuildings().get(i);
+            }
         }
 //        go to refactored method
         boolean isItDestroyed = refactoredCharacterButtonActionsForThisPlayer(whichBuilding, new View[]{}, target);
 //        if a building is destroyed
         if (isItDestroyed == true) {
-            if (whichBuilding == 5) {
-                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
-                b1Button.setVisibility(View.GONE);
-            } else if (whichBuilding == 6) {
-                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
-                b2Button.setVisibility(View.GONE);
-            } else if (whichBuilding == 7) {
-                tokyo.removeBuilding(tokyo.getBuildings().get(whichBuilding-5));
-                b3Button.setVisibility(View.GONE);
+            for (int i = 0; i < buildingButtons.size(); i++){
+                if (whichBuilding == i + 5) {
+                    tokyo.removeBuilding(tokyo.getBuildings().get(i));
+                    buildingButtons.get(i).setVisibility(View.GONE);
+                    buildingButtons.remove(i);
+                }
             }
+
+            buildingArray = "";
+            for (IAttackable building : tokyo.getBuildings()){
+                buildingArray += building.getName();
+            }
+            testText.setText(buildingArray);
+
 //        update the screen with latest information
             refreshScreen();
         }

@@ -55,8 +55,10 @@ public class Kaiju implements Serializable, IAttackable {
         return stp;
     }
 
-    public void setStp(int stp) {
-        this.stp = stp;
+    public void regenStp() {
+        if (stp <= stpMax-10) {
+            this.stp += 10*lev;
+        }
     }
 
     public int getStpMax() {
