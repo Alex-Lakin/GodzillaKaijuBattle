@@ -100,22 +100,24 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building(" 1 ", 30, 100, 5);
-        building2 = new Building(" 2 ", 30, 100,4);
-        building3 = new Building(" 3 ", 30, 100,6);
+        building1 = new Building(" 1 ", 30, 100, 14);
+        building2 = new Building(" 2 ", 30, 100,15);
+        building3 = new Building(" 3 ", 30, 100,13);
+//        add buildings to city
+        tokyo.addBuilding(building1);
+        tokyo.addBuilding(building2);
+        tokyo.addBuilding(building3);
+
 //        setup building buttons
-        b1Button = findViewById(R.id.building1ImageButtonId);
-        b2Button = findViewById(R.id.building2ImageButtonId);
-        b3Button = findViewById(R.id.building3ImageButtonId);
+        b1Button = findViewById(R.id.buildingImageButtonId1);
+        b2Button = findViewById(R.id.buildingImageButtonId2);
+        b3Button = findViewById(R.id.buildingImageButtonId3);
+//        add building buttons to array list
         buildingButtons = new ArrayList<>();
         buildingButtons.add(b1Button);
         buildingButtons.add(b2Button);
         buildingButtons.add(b3Button);
 
-//        add buildings to city
-        tokyo.addBuilding(building1);
-        tokyo.addBuilding(building2);
-        tokyo.addBuilding(building3);
 
 //        create citizens;
         citizen1 = new Citizen(10, 4, 19);

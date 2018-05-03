@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <ImageButton
-        android:id="@+id/building3ImageButtonId"
+        android:id="@+id/buildingImageButtonId1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -70,14 +70,14 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74"
-        app:srcCompat="@drawable/building3" />
+        app:layout_constraintVertical_bias="0.032"
+        app:srcCompat="@drawable/building1" />
 
     <ImageButton
-        android:id="@+id/building2ImageButtonId"
+        android:id="@+id/buildingImageButtonId2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -87,14 +87,14 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
+        app:layout_constraintVertical_bias="0.100000024"
         app:srcCompat="@drawable/building2" />
 
     <ImageButton
-        android:id="@+id/building1ImageButtonId"
+        android:id="@+id/buildingImageButtonId3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -104,11 +104,11 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77"
-        app:srcCompat="@drawable/building1" />
+        app:layout_constraintVertical_bias="0.13"
+        app:srcCompat="@drawable/building3" />
 
     <ImageButton
         android:id="@+id/citizensImageButtonId23"
