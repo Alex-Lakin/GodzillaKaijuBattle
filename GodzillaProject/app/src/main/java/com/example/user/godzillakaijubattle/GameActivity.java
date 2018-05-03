@@ -304,7 +304,6 @@ public class GameActivity extends AppCompatActivity {
 
 //        testing
         testText = findViewById(R.id.TestTextView);
-        testText.setText(String.valueOf(citizen1.getPos()) + "  ,  " + citizen2.getPos()+ "  ,  " + citizen3.getPos());
     }
 
     public void onClickedPlayerButton(View button) {
@@ -483,8 +482,6 @@ public class GameActivity extends AppCompatActivity {
         p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
         p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
         p2HudAttk.setText(controller.getCombatant(2).getPlayersKaiju().getCurrentAttack().getName());
-
-        testText.setText(String.valueOf(citizen1.getPos()) + "  ,  " + citizen2.getPos()+ "  ,  " + citizen3.getPos());
     }
 
     public void endGame(Player winner) {

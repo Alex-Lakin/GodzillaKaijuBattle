@@ -60,6 +60,258 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <ImageButton
+        android:id="@+id/citizensImageButtonId18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.34"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.435"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.53"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.85"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.64"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.110000014"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.110000014"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.32999998"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.217"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.43"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.53"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.75"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.343"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.678"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.64"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.435"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
         android:id="@+id/buildingImageButtonId1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,6 +417,20 @@
         app:srcCompat="@drawable/building2" />
 
     <ImageButton
+        android:id="@+id/citizensImageButtonId23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.32999998"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
         android:id="@+id/buildingImageButtonId8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -193,6 +459,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.35000002"
         app:srcCompat="@drawable/building4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.435"
+        app:srcCompat="@drawable/citizen4" />
 
     <ImageButton
         android:id="@+id/buildingImageButtonId10"
@@ -239,6 +519,20 @@
         app:srcCompat="@drawable/building4" />
 
     <ImageButton
+        android:id="@+id/citizensImageButtonId20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.544"
+        app:srcCompat="@drawable/citizen4" />
+
+    <ImageButton
         android:id="@+id/buildingImageButtonId14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -252,6 +546,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/building4" />
+
+    <ImageButton
+        android:id="@+id/citizensImageButtonId22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:onClick="onClickCitizenButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
+        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
+        app:layout_constraintVertical_bias="0.53"
+        app:srcCompat="@drawable/citizen4" />
 
     <ImageButton
         android:id="@+id/buildingImageButtonId15"
@@ -269,49 +577,6 @@
         app:srcCompat="@drawable/building8" />
 
     <ImageButton
-        android:id="@+id/buildingImageButtonId13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickedBuildingButton"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71000004"
-        app:srcCompat="@drawable/building1" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.32999998"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.53"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
         android:id="@+id/citizensImageButtonId21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -326,284 +591,19 @@
         app:srcCompat="@drawable/citizen4" />
 
     <ImageButton
-        android:id="@+id/citizensImageButtonId20"
+        android:id="@+id/buildingImageButtonId13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
+        android:onClick="onClickedBuildingButton"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.544"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.435"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.34"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.435"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.32999998"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.395"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.110000014"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.110000014"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.678"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.217"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.791"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.343"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.882"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.435"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.791"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.53"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.678"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.64"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.75"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.85"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.75"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.64"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.53"
-        app:srcCompat="@drawable/citizen4" />
-
-    <ImageButton
-        android:id="@+id/citizensImageButtonId1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/list_selector_background"
-        android:onClick="onClickCitizenButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/backgroundImageViewId"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="@+id/backgroundImageViewId"
-        app:layout_constraintTop_toTopOf="@+id/cityTextViewId"
-        app:layout_constraintVertical_bias="0.43"
-        app:srcCompat="@drawable/citizen4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71000004"
+        app:srcCompat="@drawable/building1" />
 
     <ImageButton
         android:id="@+id/clickAnywhereElseImageButtonId"
