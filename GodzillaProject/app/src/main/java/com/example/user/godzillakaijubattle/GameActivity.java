@@ -29,6 +29,35 @@ public class GameActivity extends AppCompatActivity {
     ImageButton b3Button;
     ArrayList<View> buildingButtons;
 
+//    citizens
+    Citizen citizen1;
+    Citizen citizen2;
+    Citizen citizen3;
+//    citizen buttons
+    ImageButton citizenPos1;
+    ImageButton citizenPos2;
+    ImageButton citizenPos3;
+    ImageButton citizenPos4;
+    ImageButton citizenPos5;
+    ImageButton citizenPos6;
+    ImageButton citizenPos7;
+    ImageButton citizenPos8;
+    ImageButton citizenPos9;
+    ImageButton citizenPos10;
+    ImageButton citizenPos11;
+    ImageButton citizenPos12;
+    ImageButton citizenPos13;
+    ImageButton citizenPos14;
+    ImageButton citizenPos15;
+    ImageButton citizenPos16;
+    ImageButton citizenPos17;
+    ImageButton citizenPos18;
+    ImageButton citizenPos19;
+    ImageButton citizenPos20;
+    ImageButton citizenPos21;
+    ImageButton citizenPos22;
+    ImageButton citizenPos23;
+    ArrayList<View> citizenButtons;
 
 //    player 1
     Player p1;
@@ -52,7 +81,6 @@ public class GameActivity extends AppCompatActivity {
 
 //    testing
     TextView testText;
-    String buildingArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +117,61 @@ public class GameActivity extends AppCompatActivity {
         tokyo.addBuilding(building2);
         tokyo.addBuilding(building3);
 
+//        add citizens;
+        citizen1 = new Citizen(10,4,19);
+        tokyo.addCitizen(citizen1);
+
+//        setup citizen buttons
+        citizenPos1 = findViewById(R.id.citizensImageButtonId1);
+        citizenPos2 = findViewById(R.id.citizensImageButtonId2);
+        citizenPos3 = findViewById(R.id.citizensImageButtonId3);
+        citizenPos4 = findViewById(R.id.citizensImageButtonId4);
+        citizenPos5 = findViewById(R.id.citizensImageButtonId5);
+        citizenPos6 = findViewById(R.id.citizensImageButtonId6);
+        citizenPos7 = findViewById(R.id.citizensImageButtonId7);
+        citizenPos8 = findViewById(R.id.citizensImageButtonId8);
+        citizenPos9 = findViewById(R.id.citizensImageButtonId9);
+        citizenPos10 = findViewById(R.id.citizensImageButtonId10);
+        citizenPos11 = findViewById(R.id.citizensImageButtonId11);
+        citizenPos12 = findViewById(R.id.citizensImageButtonId12);
+        citizenPos13 = findViewById(R.id.citizensImageButtonId13);
+        citizenPos14 = findViewById(R.id.citizensImageButtonId14);
+        citizenPos15 = findViewById(R.id.citizensImageButtonId15);
+        citizenPos16 = findViewById(R.id.citizensImageButtonId16);
+        citizenPos17 = findViewById(R.id.citizensImageButtonId17);
+        citizenPos18 = findViewById(R.id.citizensImageButtonId18);
+        citizenPos19 = findViewById(R.id.citizensImageButtonId19);
+        citizenPos20 = findViewById(R.id.citizensImageButtonId20);
+        citizenPos21 = findViewById(R.id.citizensImageButtonId21);
+        citizenPos22 = findViewById(R.id.citizensImageButtonId22);
+        citizenPos23 = findViewById(R.id.citizensImageButtonId23);
+        citizenButtons = new ArrayList<>();
+        citizenButtons.add(citizenPos1);
+        citizenButtons.add(citizenPos2);
+        citizenButtons.add(citizenPos3);
+        citizenButtons.add(citizenPos4);
+        citizenButtons.add(citizenPos5);
+        citizenButtons.add(citizenPos6);
+        citizenButtons.add(citizenPos7);
+        citizenButtons.add(citizenPos8);
+        citizenButtons.add(citizenPos9);
+        citizenButtons.add(citizenPos10);
+        citizenButtons.add(citizenPos11);
+        citizenButtons.add(citizenPos12);
+        citizenButtons.add(citizenPos13);
+        citizenButtons.add(citizenPos14);
+        citizenButtons.add(citizenPos15);
+        citizenButtons.add(citizenPos16);
+        citizenButtons.add(citizenPos17);
+        citizenButtons.add(citizenPos18);
+        citizenButtons.add(citizenPos19);
+        citizenButtons.add(citizenPos20);
+        citizenButtons.add(citizenPos21);
+        citizenButtons.add(citizenPos22);
+        citizenButtons.add(citizenPos23);
+        for (View button : citizenButtons){
+            button.setVisibility(View.GONE);
+        }
 
 //        set up click anywhere else button
         clickAnywhereElseButton = findViewById(R.id.clickAnywhereElseImageButtonId);
@@ -223,6 +306,7 @@ public class GameActivity extends AppCompatActivity {
         for (View aView : p2buttons){
             aView.setVisibility(View.GONE);
         }
+        moveCitizens(tokyo);
     }
 
     public boolean attackOrShowStats(int p, View[] playersButtons, IAttackable target){
@@ -246,6 +330,24 @@ public class GameActivity extends AppCompatActivity {
             return aretheydefeated;
         }
         return false;
+    }
+
+    public void moveCitizens(City city){
+        if (city.getCitizens().size() > 0) {
+            for (Citizen citizen : city.getCitizens()) {
+                citizen.moveToNewPosition(city);
+            }
+            refreshScreen();
+        }
+        int i = 0;
+        for (View button : citizenButtons){
+            i++;
+            for (Citizen cit : tokyo.getCitizens()){
+                if (cit.getPos() == i){
+                    button.setVisibility(View.VISIBLE);
+                }
+            }
+        }
     }
 
     public void refreshScreen(){

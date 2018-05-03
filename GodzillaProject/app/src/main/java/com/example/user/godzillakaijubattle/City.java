@@ -20,8 +20,13 @@ public class City {
     public void addCitizen(Citizen citizen) {
         citizens.add(citizen);
     }
+
     public ArrayList<Citizen> getCitizens() {
         return citizens;
+    }
+
+    public void citizenEsacpes(Citizen evacuee){
+        citizens.remove(evacuee);
     }
 
     public void addBuilding(IAttackable building) {
