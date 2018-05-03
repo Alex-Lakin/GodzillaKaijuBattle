@@ -299,6 +299,25 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    public void onClickCitizenButton(View clickedButton){
+        int pos = 0;
+        Kaiju currentPlayerKaiju = controller.getCombatant(controller.getTurn()).getPlayersKaiju();
+//        get pos, which is the buttons position in the array
+        for (View button : citizenButtons) {
+            if (clickedButton == button) {
+                pos = citizenButtons.indexOf(button)+1;
+                break;
+            }
+        }
+        for (Citizen citizen : tokyo.getCitizens()){
+            if (citizen.getPos() == pos){
+                currentPlayerKaiju.eatCitizen(citizen);
+                citizen.setPos(0);
+                clickedButton.setVisibility(View.GONE);
+            }
+        }
+    }
+
     public void onClickedAnwhereElseButton(View button){
         for (View aView : p1buttons){
             aView.setVisibility(View.GONE);

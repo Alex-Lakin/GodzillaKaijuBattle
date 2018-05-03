@@ -25,6 +25,10 @@ public class Citizen {
         return pos;
     }
 
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
+
     public void moveToNewPosition(City city){
         if (pos == 0){
             city.citizenEsacpes(this);

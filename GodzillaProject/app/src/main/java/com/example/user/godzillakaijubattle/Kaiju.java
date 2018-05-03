@@ -154,9 +154,8 @@ public class Kaiju implements Serializable, IAttackable {
         return false;
     }
 
-    public void eatCitizen(City city){
-        Citizen snack = city.getCitizens().get(0);
-        this.hp += snack.getNutritionalValue();
-        city.getCitizens().remove(snack);
+    public void eatCitizen(Citizen snack){
+        this.hp += snack.getNutritionalValue()*snack.getGroupSize();
+        if (hp > hpMax) {hp = hpMax;}
     }
 }
