@@ -345,6 +345,9 @@ public class GameActivity extends AppCompatActivity {
             for (Citizen cit : tokyo.getCitizens()){
                 if (cit.getPos() == i){
                     button.setVisibility(View.VISIBLE);
+                    break;
+                } else {
+                    button.setVisibility(View.GONE);
                 }
             }
         }
