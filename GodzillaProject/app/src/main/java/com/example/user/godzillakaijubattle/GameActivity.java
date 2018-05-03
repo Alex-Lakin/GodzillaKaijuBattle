@@ -2,6 +2,7 @@ package com.example.user.godzillakaijubattle;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -117,9 +118,15 @@ public class GameActivity extends AppCompatActivity {
         tokyo.addBuilding(building2);
         tokyo.addBuilding(building3);
 
-//        add citizens;
+//        create citizens;
         citizen1 = new Citizen(10,4,19);
+        citizen2 = new Citizen(10,5,4);
+
+//        add citizens to city streets
         tokyo.addCitizen(citizen1);
+
+//        add citizens to buildings
+        building2.addOccupant(citizen2);
 
 //        setup citizen buttons
         citizenPos1 = findViewById(R.id.citizensImageButtonId1);
@@ -169,8 +176,18 @@ public class GameActivity extends AppCompatActivity {
         citizenButtons.add(citizenPos21);
         citizenButtons.add(citizenPos22);
         citizenButtons.add(citizenPos23);
+        int i = 0;
         for (View button : citizenButtons){
-            button.setVisibility(View.GONE);
+            i++;
+            for (Citizen cit : tokyo.getCitizens()){
+                if (cit.getPos() == i){
+                    button.setVisibility(View.VISIBLE);
+                    break;
+                } else {
+                    button.setVisibility(View.GONE);
+                    break;
+                }
+            }
         }
 
 //        set up click anywhere else button
@@ -249,14 +266,13 @@ public class GameActivity extends AppCompatActivity {
             if (whichPlayer == 1){
                 controller.removeCombatant(p1);
                 player1Button.setVisibility(View.GONE);
+                endGame(p2);
             } else if (whichPlayer == 2){
                 controller.removeCombatant(p2);
                 player2Button.setVisibility(View.GONE);
+                endGame(p1);
             }
-//            move to next player
-            controller.nextTurn();
-////        update the screen with latest information
-//            refreshScreen();
+
         }
     }
 
@@ -289,11 +305,13 @@ public class GameActivity extends AppCompatActivity {
         if (isItDestroyed == true) {
             for (int i = 0; i < buildingButtons.size(); i++){
                 if (whichBuilding == i + 5) {
-                    tokyo.removeBuilding(tokyo.getBuildings().get(i));
+                    Building b = (Building) tokyo.getBuildings().get(i);
+                    tokyo.removeBuilding(b);
                     buildingButtons.get(i).setVisibility(View.GONE);
                     buildingButtons.remove(i);
                 }
             }
+
 //        update the screen with latest information
             refreshScreen();
         }
@@ -316,6 +334,9 @@ public class GameActivity extends AppCompatActivity {
                 clickedButton.setVisibility(View.GONE);
             }
         }
+        controller.nextTurn();
+        moveCitizens(tokyo);
+        refreshScreen();
     }
 
     public void onClickedAnwhereElseButton(View button){
@@ -325,7 +346,10 @@ public class GameActivity extends AppCompatActivity {
         for (View aView : p2buttons){
             aView.setVisibility(View.GONE);
         }
-        moveCitizens(tokyo);
+        if (controller.getAllCombatants().size() == 1){
+            Intent goToCharacterSelect = new Intent(this,CharacterSelectActivity.class);
+            startActivity(goToCharacterSelect);
+        }
     }
 
     public boolean attackOrShowStats(int p, View[] playersButtons, IAttackable target){
@@ -344,6 +368,8 @@ public class GameActivity extends AppCompatActivity {
             boolean aretheydefeated = currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),target,tokyo);
 //            move to next player
             controller.nextTurn();
+//            move citizens
+            moveCitizens(tokyo);
 //            update the screen with latest information
             refreshScreen();
             return aretheydefeated;
@@ -379,5 +405,10 @@ public class GameActivity extends AppCompatActivity {
         p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
         p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
         p2HudAttk.setText(controller.getCombatant(2).getPlayersKaiju().getCurrentAttack().getName());
+    }
+
+    public void endGame(Player winner){
+        currentTurnText.setText(winner.getPlayersKaiju().getName() + " is Victorious!");
+        clickAnywhereElseButton.setVisibility(View.VISIBLE);
     }
 }

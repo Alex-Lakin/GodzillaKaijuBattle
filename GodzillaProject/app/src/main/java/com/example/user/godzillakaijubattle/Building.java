@@ -7,13 +7,13 @@ public class Building implements IAttackable {
     private String buildingType;
     private int hp;
     private int expGain;
-//    private ArrayList<Citizen> occupants;
+    private ArrayList<Citizen> occupants;
 
     public Building(String buildingType, int hp, int expGain){
         this.buildingType = buildingType;
         this.hp = hp;
         this.expGain = expGain;
-//        this.occupants = new ArrayList<>();
+        this.occupants = new ArrayList<>();
     }
 
     public String getName() {
@@ -33,18 +33,11 @@ public class Building implements IAttackable {
         return expGain;
     }
 
-//    public ArrayList<Citizen> getOccupants() {
-//        return occupants;
-//    }
-//
-//    public void addOccupant(Citizen occupant){
-//        occupants.add(occupant);
-//    }
-//
-//    public void evacuateAndColapse(City streets){
-//        for (int i = 0; i < occupants.size(); i++){
-//            streets.addCitizen(occupants.get(i));
-//        }
-//        streets.getTargets().remove(this);
-//    }
+    public void addOccupant(Citizen occupant){
+        occupants.add(occupant);
+    }
+
+    public void evacuateBuilding(City streets){
+        streets.addCitizen(occupants.get(0));
+    }
 }
