@@ -26,9 +26,12 @@ public class Citizen {
     }
 
     public void moveToNewPosition(City city){
+        if (pos == 0){
+            city.citizenEsacpes(this);
+        }
         Random rand = new Random();
         if (pos == 1){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 2){
             int choice = rand.nextInt((3-1)+1)-1;
             if (choice == 1){pos = 1;}
@@ -45,7 +48,7 @@ public class Citizen {
             else if (choice == 2){pos = 5;}
             else {pos = 3;}
         } else if (pos == 5){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 6){
             int choice = rand.nextInt((3-1)+1)-1;
             if (choice == 1){pos = 5;}
@@ -61,16 +64,16 @@ public class Citizen {
             if (choice == 1){pos = 6;}
             else {pos = 9;}
         } else if (pos == 9){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 10){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 11){
             int choice = rand.nextInt((3-1)+1)-1;
             if (choice == 1){pos = 10;}
             else if (choice == 2){pos = 23;}
             else {pos = 12;}
         } else if (pos == 12){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 13){
             int choice = rand.nextInt((4-1)+1)-1;
             if (choice == 1){pos = 12;}
@@ -78,9 +81,9 @@ public class Citizen {
             else if (choice == 3){pos = 18;}
             else {pos = 14;}
         } else if (pos == 14){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 15){
-            city.citizenEsacpes(this);
+            pos = 0;
         } else if (pos == 16){
             int choice = rand.nextInt((3-1)+1)-1;
             if (choice == 1){pos = 15;}

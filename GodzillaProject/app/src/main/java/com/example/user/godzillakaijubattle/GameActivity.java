@@ -348,6 +348,7 @@ public class GameActivity extends AppCompatActivity {
                     break;
                 } else {
                     button.setVisibility(View.GONE);
+                    break;
                 }
             }
         }
