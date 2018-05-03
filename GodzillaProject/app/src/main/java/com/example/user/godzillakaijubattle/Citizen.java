@@ -30,9 +30,6 @@ public class Citizen {
     }
 
     public void moveToNewPosition(City city){
-        if (pos == 0){
-            city.citizenEsacpes(this);
-        }
         Random rand = new Random();
         if (pos == 1){
             pos = 0;
@@ -125,7 +122,7 @@ public class Citizen {
             if (choice == 1){pos = 19;}
             else if (choice == 2){pos = 21;}
             else {pos = 7;}
-        } else{ //pos==23
+        } else if (pos == 23){
             int choice = rand.nextInt((3-1)+1)-1;
             if (choice == 1){pos = 11;}
             else if (choice == 2){pos = 13;}

@@ -14,14 +14,14 @@ import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
-//    world
+    //    world
     GameMaster controller;
     City tokyo;
     TextView currentCityText;
     TextView currentTurnText;
     ImageButton clickAnywhereElseButton;
 
-//    buildings
+    //    buildings
     Building building1;
     Building building2;
     Building building3;
@@ -30,11 +30,11 @@ public class GameActivity extends AppCompatActivity {
     ImageButton b3Button;
     ArrayList<View> buildingButtons;
 
-//    citizens
+    //    citizens
     Citizen citizen1;
     Citizen citizen2;
     Citizen citizen3;
-//    citizen buttons
+    //    citizen buttons
     ImageButton citizenPos1;
     ImageButton citizenPos2;
     ImageButton citizenPos3;
@@ -60,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
     ImageButton citizenPos23;
     ArrayList<View> citizenButtons;
 
-//    player 1
+    //    player 1
     Player p1;
     ImageButton player1Button;
     TextView p1HudStats;
@@ -69,7 +69,7 @@ public class GameActivity extends AppCompatActivity {
     ImageButton p1HudPrevAttk;
     View[] p1buttons;
 
-//    player 2
+    //    player 2
     Player p2;
     ImageButton player2Button;
     TextView p2HudStats;
@@ -79,8 +79,7 @@ public class GameActivity extends AppCompatActivity {
     View[] p2buttons;
 
 
-
-//    testing
+    //    testing
     TextView testText;
 
     @Override
@@ -101,9 +100,9 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building(" 1 ",30,100);
-        building2 = new Building(" 2 ",30,100);
-        building3 = new Building(" 3 ",30,100);
+        building1 = new Building(" 1 ", 30, 100, 5);
+        building2 = new Building(" 2 ", 30, 100,4);
+        building3 = new Building(" 3 ", 30, 100,6);
 //        setup building buttons
         b1Button = findViewById(R.id.building1ImageButtonId);
         b2Button = findViewById(R.id.building2ImageButtonId);
@@ -119,14 +118,14 @@ public class GameActivity extends AppCompatActivity {
         tokyo.addBuilding(building3);
 
 //        create citizens;
-        citizen1 = new Citizen(10,4,19);
-        citizen2 = new Citizen(10,5,4);
+        citizen1 = new Citizen(10, 4, 19);
+        citizen2 = new Citizen(10, 5, 8);
+        citizen3 = new Citizen(5, 5, 17);
 
 //        add citizens to city streets
         tokyo.addCitizen(citizen1);
-
-//        add citizens to buildings
-        building2.addOccupant(citizen2);
+        tokyo.addCitizen(citizen2);
+        tokyo.addCitizen(citizen3);
 
 //        setup citizen buttons
         citizenPos1 = findViewById(R.id.citizensImageButtonId1);
@@ -176,19 +175,8 @@ public class GameActivity extends AppCompatActivity {
         citizenButtons.add(citizenPos21);
         citizenButtons.add(citizenPos22);
         citizenButtons.add(citizenPos23);
-        int i = 0;
-        for (View button : citizenButtons){
-            i++;
-            for (Citizen cit : tokyo.getCitizens()){
-                if (cit.getPos() == i){
-                    button.setVisibility(View.VISIBLE);
-                    break;
-                } else {
-                    button.setVisibility(View.GONE);
-                    break;
-                }
-            }
-        }
+
+        updateCitizenPositions();
 
 //        set up click anywhere else button
         clickAnywhereElseButton = findViewById(R.id.clickAnywhereElseImageButtonId);
@@ -215,8 +203,8 @@ public class GameActivity extends AppCompatActivity {
         p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName());
         p1HudNextAttk = findViewById(R.id.p1NextAttkImageButtonId);
         p1HudPrevAttk = findViewById(R.id.p1PrevAttkImageButtonId);
-        p1buttons = new View[]{p1HudStats,p1HudAttk,p1HudNextAttk,p1HudPrevAttk,clickAnywhereElseButton};
-        for (View aView : p1buttons){
+        p1buttons = new View[]{p1HudStats, p1HudAttk, p1HudNextAttk, p1HudPrevAttk, clickAnywhereElseButton};
+        for (View aView : p1buttons) {
             aView.setVisibility(View.GONE);
         }
 
@@ -227,8 +215,8 @@ public class GameActivity extends AppCompatActivity {
         p2HudAttk.setText(p2.getPlayersKaiju().getCurrentAttack().getName());
         p2HudNextAttk = findViewById(R.id.p2NextAttkImageButtonId);
         p2HudPrevAttk = findViewById(R.id.p2PrevAttkImageButtonId);
-        p2buttons = new View[]{p2HudStats,p2HudAttk,p2HudNextAttk,p2HudPrevAttk,clickAnywhereElseButton};
-        for (View aView : p2buttons){
+        p2buttons = new View[]{p2HudStats, p2HudAttk, p2HudNextAttk, p2HudPrevAttk, clickAnywhereElseButton};
+        for (View aView : p2buttons) {
             aView.setVisibility(View.GONE);
         }
 
@@ -240,19 +228,18 @@ public class GameActivity extends AppCompatActivity {
 
 //        testing
         testText = findViewById(R.id.TestTextView);
-        testText.setText("");
+        testText.setText(String.valueOf(citizen1.getPos()) + "  ,  " + citizen2.getPos()+ "  ,  " + citizen3.getPos());
     }
 
-
-    public void onClickedPlayerButton(View button){
+    public void onClickedPlayerButton(View button) {
         int whichPlayer = 0;
         View[] playersButtons;
         IAttackable target = null;
-        if (button == player1Button){
+        if (button == player1Button) {
             whichPlayer = 1;
             playersButtons = p1buttons;
             target = p1.getPlayersKaiju();
-        } else if (button == player2Button){
+        } else if (button == player2Button) {
             whichPlayer = 2;
             playersButtons = p2buttons;
             target = p2.getPlayersKaiju();
@@ -260,14 +247,14 @@ public class GameActivity extends AppCompatActivity {
             playersButtons = new View[]{};
         }
 //        go to refactored method
-        boolean aretheydefeated = attackOrShowStats(whichPlayer,playersButtons,target);
+        boolean aretheydefeated = attackOrShowStats(whichPlayer, playersButtons, target);
 //        if an opponent is defeated
-        if (aretheydefeated == true){
-            if (whichPlayer == 1){
+        if (aretheydefeated == true) {
+            if (whichPlayer == 1) {
                 controller.removeCombatant(p1);
                 player1Button.setVisibility(View.GONE);
                 endGame(p2);
-            } else if (whichPlayer == 2){
+            } else if (whichPlayer == 2) {
                 controller.removeCombatant(p2);
                 player2Button.setVisibility(View.GONE);
                 endGame(p1);
@@ -276,14 +263,14 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickedPlayerNextAttack(View button){
+    public void onClickedPlayerNextAttack(View button) {
 //        select next attack in unlocked attack list
         controller.getCombatant(controller.getTurn()).getPlayersKaiju().switchAttack(1);
 //        update the screen with latest information
         refreshScreen();
     }
 
-    public void onClickedPlayerPrevAttack(View button){
+    public void onClickedPlayerPrevAttack(View button) {
 //        select next attack in unlocked attack list
         controller.getCombatant(controller.getTurn()).getPlayersKaiju().switchAttack(-1);
 //        update the screen with latest information
@@ -293,7 +280,7 @@ public class GameActivity extends AppCompatActivity {
     public void onClickedBuildingButton(View button) {
         int whichBuilding = 0;
         IAttackable target = null;
-        for (int i = 0; i < buildingButtons.size(); i++){
+        for (int i = 0; i < buildingButtons.size(); i++) {
             if (button == buildingButtons.get(i)) {
                 whichBuilding = i + 5;
                 target = tokyo.getBuildings().get(i);
@@ -303,10 +290,17 @@ public class GameActivity extends AppCompatActivity {
         boolean isItDestroyed = attackOrShowStats(whichBuilding, new View[]{}, target);
 //        if a building is destroyed
         if (isItDestroyed == true) {
-            for (int i = 0; i < buildingButtons.size(); i++){
+            for (int i = 0; i < buildingButtons.size(); i++) {
                 if (whichBuilding == i + 5) {
                     Building b = (Building) tokyo.getBuildings().get(i);
                     tokyo.removeBuilding(b);
+                    for (Citizen citizen : tokyo.getCitizens()){
+                        if (citizen.getPos() == 0){
+                            citizen.setPos(b.getEvacuationPoint());
+                            updateCitizenPositions();
+                            break;
+                        }
+                    }
                     buildingButtons.get(i).setVisibility(View.GONE);
                     buildingButtons.remove(i);
                 }
@@ -317,18 +311,18 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickCitizenButton(View clickedButton){
+    public void onClickCitizenButton(View clickedButton) {
         int pos = 0;
         Kaiju currentPlayerKaiju = controller.getCombatant(controller.getTurn()).getPlayersKaiju();
 //        get pos, which is the buttons position in the array
         for (View button : citizenButtons) {
             if (clickedButton == button) {
-                pos = citizenButtons.indexOf(button)+1;
+                pos = citizenButtons.indexOf(button) + 1;
                 break;
             }
         }
-        for (Citizen citizen : tokyo.getCitizens()){
-            if (citizen.getPos() == pos){
+        for (Citizen citizen : tokyo.getCitizens()) {
+            if (citizen.getPos() == pos) {
                 currentPlayerKaiju.eatCitizen(citizen);
                 citizen.setPos(0);
                 clickedButton.setVisibility(View.GONE);
@@ -339,24 +333,24 @@ public class GameActivity extends AppCompatActivity {
         refreshScreen();
     }
 
-    public void onClickedAnwhereElseButton(View button){
-        for (View aView : p1buttons){
+    public void onClickedAnwhereElseButton(View button) {
+        for (View aView : p1buttons) {
             aView.setVisibility(View.GONE);
         }
-        for (View aView : p2buttons){
+        for (View aView : p2buttons) {
             aView.setVisibility(View.GONE);
         }
-        if (controller.getAllCombatants().size() == 1){
-            Intent goToCharacterSelect = new Intent(this,CharacterSelectActivity.class);
+        if (controller.getAllCombatants().size() == 1) {
+            Intent goToCharacterSelect = new Intent(this, CharacterSelectActivity.class);
             startActivity(goToCharacterSelect);
         }
     }
 
-    public boolean attackOrShowStats(int p, View[] playersButtons, IAttackable target){
+    public boolean attackOrShowStats(int p, View[] playersButtons, IAttackable target) {
 //        if its this players turn, show them stats and attacks
-        if (controller.getTurn() == p){
-            if (playersButtons[0].getVisibility() == View.GONE){
-                for (View aView : playersButtons){
+        if (controller.getTurn() == p) {
+            if (playersButtons[0].getVisibility() == View.GONE) {
+                for (View aView : playersButtons) {
                     aView.setVisibility(View.VISIBLE);
                 }
             }
@@ -365,7 +359,7 @@ public class GameActivity extends AppCompatActivity {
 //            get the player whose turn it is
             Player currentPlayersTurn = controller.getCombatant(controller.getTurn());
 //            player whose turn it is attacks this player
-            boolean aretheydefeated = currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(),target,tokyo);
+            boolean aretheydefeated = currentPlayersTurn.getPlayersKaiju().attack(currentPlayersTurn.getPlayersKaiju().getCurrentAttack(), target, tokyo);
 //            move to next player
             controller.nextTurn();
 //            move citizens
@@ -377,37 +371,47 @@ public class GameActivity extends AppCompatActivity {
         return false;
     }
 
-    public void moveCitizens(City city){
+    public void moveCitizens(City city) {
         if (city.getCitizens().size() > 0) {
             for (Citizen citizen : city.getCitizens()) {
                 citizen.moveToNewPosition(city);
             }
             refreshScreen();
         }
+        updateCitizenPositions();
+    }
+
+    public void updateCitizenPositions() {
+
+        //hide all buttons
+        for (View button : citizenButtons) {
+            button.setVisibility(View.GONE);
+        }
+
+
+        //show citizen buttons
         int i = 0;
-        for (View button : citizenButtons){
+        for (View button : citizenButtons) {
             i++;
-            for (Citizen cit : tokyo.getCitizens()){
-                if (cit.getPos() == i){
+            for (Citizen cit : tokyo.getCitizens()) {
+                if (cit.getPos() == i) {
                     button.setVisibility(View.VISIBLE);
-                    break;
-                } else {
-                    button.setVisibility(View.GONE);
-                    break;
                 }
             }
         }
     }
 
-    public void refreshScreen(){
+    public void refreshScreen() {
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
         p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
         p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
         p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
         p2HudAttk.setText(controller.getCombatant(2).getPlayersKaiju().getCurrentAttack().getName());
+
+        testText.setText(String.valueOf(citizen1.getPos()) + "  ,  " + citizen2.getPos()+ "  ,  " + citizen3.getPos());
     }
 
-    public void endGame(Player winner){
+    public void endGame(Player winner) {
         currentTurnText.setText(winner.getPlayersKaiju().getName() + " is Victorious!");
         clickAnywhereElseButton.setVisibility(View.VISIBLE);
     }

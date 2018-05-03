@@ -7,13 +7,17 @@ public class Building implements IAttackable {
     private String buildingType;
     private int hp;
     private int expGain;
-    private ArrayList<Citizen> occupants;
+    private int evacuationPoint;
 
-    public Building(String buildingType, int hp, int expGain){
+    public Building(String buildingType, int hp, int expGain, int evacuationPoint){
         this.buildingType = buildingType;
         this.hp = hp;
         this.expGain = expGain;
-        this.occupants = new ArrayList<>();
+        this.evacuationPoint = evacuationPoint;
+    }
+
+    public int getEvacuationPoint() {
+        return evacuationPoint;
     }
 
     public String getName() {
@@ -31,13 +35,5 @@ public class Building implements IAttackable {
 
     public int getExpGain() {
         return expGain;
-    }
-
-    public void addOccupant(Citizen occupant){
-        occupants.add(occupant);
-    }
-
-    public void evacuateBuilding(City streets){
-        streets.addCitizen(occupants.get(0));
     }
 }

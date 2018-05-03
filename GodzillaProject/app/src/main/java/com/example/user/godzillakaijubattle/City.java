@@ -25,10 +25,6 @@ public class City {
         return citizens;
     }
 
-    public void citizenEsacpes(Citizen evacuee){
-        citizens.remove(evacuee);
-    }
-
     public void addBuilding(IAttackable building) {
         buildings.add(building);
     }
