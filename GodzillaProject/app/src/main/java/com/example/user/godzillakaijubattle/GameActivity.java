@@ -25,9 +25,35 @@ public class GameActivity extends AppCompatActivity {
     Building building1;
     Building building2;
     Building building3;
+    Building building4;
+    Building building5;
+    Building building6;
+    Building building7;
+    Building building8;
+    Building building9;
+    Building building10;
+    Building building11;
+    Building building12;
+    Building building13;
+    Building building14;
+    Building building15;
+    Building building16;
     ImageButton b1Button;
     ImageButton b2Button;
     ImageButton b3Button;
+    ImageButton b4Button;
+    ImageButton b5Button;
+    ImageButton b6Button;
+    ImageButton b7Button;
+    ImageButton b8Button;
+    ImageButton b9Button;
+    ImageButton b10Button;
+    ImageButton b11Button;
+    ImageButton b12Button;
+    ImageButton b13Button;
+    ImageButton b14Button;
+    ImageButton b15Button;
+    ImageButton b16Button;
     ArrayList<View> buildingButtons;
 
     //    citizens
@@ -100,23 +126,71 @@ public class GameActivity extends AppCompatActivity {
         currentCityText.setText(tokyo.getName());
 
 //        create buildings
-        building1 = new Building(" 1 ", 30, 100, 14);
-        building2 = new Building(" 2 ", 30, 100,15);
-        building3 = new Building(" 3 ", 30, 100,13);
+        building1 = new Building(" 1 ", 30, 100, 13);
+        building2 = new Building(" 2 ", 40, 100,23);
+        building3 = new Building(" 3 ", 40, 100,17);
+        building4 = new Building(" 3 ", 30, 100,13);
+        building5 = new Building(" 3 ", 30, 100,11);
+        building6 = new Building(" 3 ", 50, 100,2);
+        building7 = new Building(" 3 ", 30, 100,19);
+        building8 = new Building(" 3 ", 20, 100,22);
+        building9 = new Building(" 3 ", 30, 100,8);
+        building10 = new Building(" 3 ", 50, 100,3);
+        building11 = new Building(" 3 ", 30, 100,21);
+        building12 = new Building(" 3 ", 20, 100,7);
+        building13 = new Building(" 3 ", 30, 100,6);
+        building14 = new Building(" 3 ", 50, 100,4);
+        building15 = new Building(" 3 ", 30, 100,7);
 //        add buildings to city
         tokyo.addBuilding(building1);
         tokyo.addBuilding(building2);
         tokyo.addBuilding(building3);
+        tokyo.addBuilding(building4);
+        tokyo.addBuilding(building5);
+        tokyo.addBuilding(building6);
+        tokyo.addBuilding(building7);
+        tokyo.addBuilding(building8);
+        tokyo.addBuilding(building9);
+        tokyo.addBuilding(building10);
+        tokyo.addBuilding(building11);
+        tokyo.addBuilding(building12);
+        tokyo.addBuilding(building13);
+        tokyo.addBuilding(building14);
+        tokyo.addBuilding(building15);
 
 //        setup building buttons
         b1Button = findViewById(R.id.buildingImageButtonId1);
         b2Button = findViewById(R.id.buildingImageButtonId2);
         b3Button = findViewById(R.id.buildingImageButtonId3);
+        b4Button = findViewById(R.id.buildingImageButtonId4);
+        b5Button = findViewById(R.id.buildingImageButtonId5);
+        b6Button = findViewById(R.id.buildingImageButtonId6);
+        b7Button = findViewById(R.id.buildingImageButtonId7);
+        b8Button = findViewById(R.id.buildingImageButtonId8);
+        b9Button = findViewById(R.id.buildingImageButtonId9);
+        b10Button = findViewById(R.id.buildingImageButtonId10);
+        b11Button = findViewById(R.id.buildingImageButtonId11);
+        b12Button = findViewById(R.id.buildingImageButtonId12);
+        b13Button = findViewById(R.id.buildingImageButtonId13);
+        b14Button = findViewById(R.id.buildingImageButtonId14);
+        b15Button = findViewById(R.id.buildingImageButtonId15);
 //        add building buttons to array list
         buildingButtons = new ArrayList<>();
         buildingButtons.add(b1Button);
         buildingButtons.add(b2Button);
         buildingButtons.add(b3Button);
+        buildingButtons.add(b4Button);
+        buildingButtons.add(b5Button);
+        buildingButtons.add(b6Button);
+        buildingButtons.add(b7Button);
+        buildingButtons.add(b8Button);
+        buildingButtons.add(b9Button);
+        buildingButtons.add(b10Button);
+        buildingButtons.add(b11Button);
+        buildingButtons.add(b12Button);
+        buildingButtons.add(b13Button);
+        buildingButtons.add(b14Button);
+        buildingButtons.add(b15Button);
 
 
 //        create citizens;
