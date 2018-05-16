@@ -88,15 +88,33 @@ public class CharacterSelectActivity extends AppCompatActivity {
 
     public void onClickNextButton(View button){
         if (button == p1Next){
+//            next in array
             p1ArrayPosition ++;
+//            if character is already selected by p2 skip it
+            if (p1ArrayPosition == p2ArrayPosition){
+                p1ArrayPosition ++;
+            }
+//            loop to start of array
             if (p1ArrayPosition >= selectableCharacters.size()){
                 p1ArrayPosition = 0;
+                if (p1ArrayPosition == p2ArrayPosition){
+                    p1ArrayPosition ++;
+                }
             }
+//            call change character function
             changeCharacter(p1,p1ArrayPosition,p1CharacterImage,p1CharacterName);
         } else if (button == p2Next) {
             p2ArrayPosition++;
+
+//            if character is already selected by p1 skip it
+            if (p2ArrayPosition == p1ArrayPosition){
+                p2ArrayPosition ++;
+            }
             if (p2ArrayPosition >= selectableCharacters.size()) {
                 p2ArrayPosition = 0;
+                if (p2ArrayPosition == p1ArrayPosition){
+                    p2ArrayPosition ++;
+                }
             }
             changeCharacter(p2,p2ArrayPosition,p2CharacterImage,p2CharacterName);
         }
@@ -106,14 +124,28 @@ public class CharacterSelectActivity extends AppCompatActivity {
     public void onClickPreviousButton(View button){
         if (button == p1Prev) {
             p1ArrayPosition--;
+//            if character is already selected by p2 skip it
+            if (p1ArrayPosition == p2ArrayPosition){
+                p1ArrayPosition --;
+            }
             if (p1ArrayPosition < 0) {
                 p1ArrayPosition = (selectableCharacters.size() - 1);
+                if (p1ArrayPosition == p2ArrayPosition){
+                    p1ArrayPosition --;
+                }
             }
             changeCharacter(p1,p1ArrayPosition,p1CharacterImage,p1CharacterName);
         } else if (button == p2Prev){
             p2ArrayPosition--;
+//            if character is already selected by p1 skip it
+            if (p2ArrayPosition == p1ArrayPosition){
+                p2ArrayPosition --;
+            }
             if (p2ArrayPosition < 0) {
                 p2ArrayPosition = (selectableCharacters.size() - 1);
+                if (p2ArrayPosition == p1ArrayPosition){
+                    p2ArrayPosition --;
+                }
             }
             changeCharacter(p2,p2ArrayPosition,p2CharacterImage,p2CharacterName);
         }

@@ -71,11 +71,11 @@ public class Kaiju implements Serializable, IAttackable {
 
     public void increaseLev() {
         this.lev ++;
-        this.hpMax = getHpMax()*lev;
+        this.hpMax = getHpMax()+(10*lev);
         this.hp = getHpMax();
-        this.stpMax = getStpMax()*lev;
+        this.stpMax = getStpMax()+(10*lev);
         this.stp = getStpMax();
-        this.expGain = getExpGain()*lev;
+        this.exp = 0;
 //        cycle through locked attacks and transfer to unlocked if at correct level
         for (int i = 0; i < lockedAttackList.size(); i++){
             if (lockedAttackList.get(i).levLock == this.lev){

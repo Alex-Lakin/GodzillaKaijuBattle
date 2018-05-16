@@ -37,7 +37,6 @@ public class GameActivity extends AppCompatActivity {
     Building building13;
     Building building14;
     Building building15;
-    Building building16;
     ImageButton b1Button;
     ImageButton b2Button;
     ImageButton b3Button;
@@ -53,7 +52,6 @@ public class GameActivity extends AppCompatActivity {
     ImageButton b13Button;
     ImageButton b14Button;
     ImageButton b15Button;
-    ImageButton b16Button;
     ArrayList<View> buildingButtons;
 
     //    citizens
@@ -274,9 +272,9 @@ public class GameActivity extends AppCompatActivity {
 //        setup player stats and interface pop up
 //          player 1
         p1HudStats = findViewById(R.id.p1StatsTextViewId);
-        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
+        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp() + "\n" + "Lev: " + p1.getPlayersKaiju().getLev() + " EXP: " + p1.getPlayersKaiju().getExp());
         p1HudAttk = findViewById(R.id.p1CurrentAttackTextViewId);
-        p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName());
+        p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName() + "\n" + "cost: " + p1.getPlayersKaiju().getCurrentAttack().getStpCost());
         p1HudNextAttk = findViewById(R.id.p1NextAttkImageButtonId);
         p1HudPrevAttk = findViewById(R.id.p1PrevAttkImageButtonId);
         p1buttons = new View[]{p1HudStats, p1HudAttk, p1HudNextAttk, p1HudPrevAttk, clickAnywhereElseButton};
@@ -286,9 +284,9 @@ public class GameActivity extends AppCompatActivity {
 
 //          player2
         p2HudStats = findViewById(R.id.p2StatsTextViewId);
-        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
+        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp() + "\n" + "Lev: " + p2.getPlayersKaiju().getLev() + " EXP: " + p2.getPlayersKaiju().getExp());
         p2HudAttk = findViewById(R.id.p2CurrentAttackTextViewId);
-        p2HudAttk.setText(p2.getPlayersKaiju().getCurrentAttack().getName());
+        p2HudAttk.setText(p2.getPlayersKaiju().getCurrentAttack().getName() + "\n" + "cost: " + p2.getPlayersKaiju().getCurrentAttack().getStpCost());
         p2HudNextAttk = findViewById(R.id.p2NextAttkImageButtonId);
         p2HudPrevAttk = findViewById(R.id.p2PrevAttkImageButtonId);
         p2buttons = new View[]{p2HudStats, p2HudAttk, p2HudNextAttk, p2HudPrevAttk, clickAnywhereElseButton};
@@ -478,10 +476,12 @@ public class GameActivity extends AppCompatActivity {
 
     public void refreshScreen() {
         currentTurnText.setText(controller.getCombatant(controller.getTurn()).getPlayersKaiju().getName() + "'s move.");
-        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp());
-        p1HudAttk.setText(controller.getCombatant(1).getPlayersKaiju().getCurrentAttack().getName());
-        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp());
-        p2HudAttk.setText(controller.getCombatant(2).getPlayersKaiju().getCurrentAttack().getName());
+        p1HudStats.setText("hp: " + p1.getPlayersKaiju().getHp() + " sp: " + p1.getPlayersKaiju().getStp() + "\n" + "Lev: " + p1.getPlayersKaiju().getLev() + " EXP: " + p1.getPlayersKaiju().getExp());
+        p1HudAttk.setText(p1.getPlayersKaiju().getCurrentAttack().getName() + "\n" + "cost: " + p1.getPlayersKaiju().getCurrentAttack().getStpCost());
+
+        p2HudStats.setText("hp: " + p2.getPlayersKaiju().getHp() + " sp: " + p2.getPlayersKaiju().getStp() + "\n" + "Lev: " + p2.getPlayersKaiju().getLev() + " EXP: " + p2.getPlayersKaiju().getExp());
+        p2HudAttk.setText(p2.getPlayersKaiju().getCurrentAttack().getName() + "\n" + "cost: " + p2.getPlayersKaiju().getCurrentAttack().getStpCost());
+
     }
 
     public void endGame(Player winner) {
