@@ -26,6 +26,46 @@ public class GameMaster implements Serializable {
     Attack windGust;
     Attack antennaBeams;
 
+    Kaiju anguirus;
+    Attack bite;
+    Attack tailSweep;
+    Attack spikeRoll;
+
+    Kaiju varan;
+    Attack tailSwipe;
+    Attack glidingPounce;
+    Attack sonicBlast;
+
+    Kaiju kingCaesar;
+    Attack pawStrike;
+    Attack flyingKick;
+    Attack electroCharge;
+
+    Kaiju gorosaurus;
+    Attack chompingJaws;
+    Attack kangarooKick;
+    Attack burrowAmbush;
+
+    Kaiju baragon;
+    Attack hornRam;
+    Attack flameRay;
+    Attack chargingImpale;
+
+    Kaiju gamera;
+    Attack elbowClaw;
+    Attack plasmaFireball;
+    Attack spinningShell;
+
+    Kaiju megalon;
+    Attack drillingStrike;
+    Attack lightningHorn;
+    Attack napalmBomb;
+
+    Kaiju titanosaurus;
+    Attack tailCyclone;
+    Attack jumpingSlam;
+    Attack sonicWave;
+
     Kaiju kingGhidorah;
     Attack doubleTailWhip;
     Attack whirlWind;
@@ -40,6 +80,37 @@ public class GameMaster implements Serializable {
     Attack ironClaw;
     Attack fingerRockets;
     Attack heatBeam;
+
+    Kaiju battra;
+    Attack poisonDust;
+    Attack prismBeams;
+    Attack kamikazeRam;
+
+    Kaiju biollante;
+    Attack vineWhips;
+    Attack jawSnap;
+    Attack corrosiveSap;
+
+    Kaiju spaceGodzilla;
+    Attack crystalShards;
+    Attack coronaBeam;
+    Attack telekinesis;
+
+    Kaiju mechaKingGhidorah;
+    Attack ironWings;
+    Attack captureCables;
+    Attack tripleLaser;
+
+    Kaiju destroyah;
+    Attack laserHorn;
+    Attack chestBeam;
+    Attack microOxygenBeam;
+
+    Kaiju mechaGamera;
+    Attack steelClaws;
+    Attack homingRockets;
+    Attack plasmaBeam;
+
 
     public GameMaster(){
         combatants = new ArrayList<Player>();
@@ -77,6 +148,86 @@ public class GameMaster implements Serializable {
         mothra.addAttack(antennaBeams);
         mothra.addFirstAttack();
 
+//        setup anguirus
+        anguirus = new Kaiju("Anguirus", 50, 20,1, 110,"anguirus");
+        bite = new Attack("Bite", 10,10,1);
+        tailSweep = new Attack("Tail Sweep", 20,20,2);
+        spikeRoll = new Attack("Spike Roll", 50,60,3);
+        anguirus.addAttack(bite);
+        anguirus.addAttack(tailSweep);
+        anguirus.addAttack(spikeRoll);
+        anguirus.addFirstAttack();
+
+//        setup varan
+        varan = new Kaiju("Varan", 50, 20,1, 110,"varan");
+        tailSwipe = new Attack("Tail Swipe", 10,10,1);
+        glidingPounce = new Attack("Gliding Pounce", 20,20,2);
+        sonicBlast = new Attack("Sonic Blast", 50,60,3);
+        varan.addAttack(tailSwipe);
+        varan.addAttack(glidingPounce);
+        varan.addAttack(sonicBlast);
+        varan.addFirstAttack();
+
+//        setup kingCaesar
+        kingCaesar = new Kaiju("King Caesar", 50, 20,1, 110,"king_caesar");
+        pawStrike = new Attack("Paw Strike", 10,10,1);
+        flyingKick = new Attack("Flying Kick", 20,20,2);
+        electroCharge = new Attack("Electro-Charge", 50,60,3);
+        kingCaesar.addAttack(pawStrike);
+        kingCaesar.addAttack(flyingKick);
+        kingCaesar.addAttack(electroCharge);
+        kingCaesar.addFirstAttack();
+
+//        setup gorosaurus
+        gorosaurus = new Kaiju("Gorosaurus", 50, 20,1, 110,"gorosaurus");
+        chompingJaws = new Attack("Jaw Chomp", 10,10,1);
+        kangarooKick = new Attack("Kangaroo-Kick", 20,20,2);
+        burrowAmbush = new Attack("Burrowing Ambush", 50,60,3);
+        gorosaurus.addAttack(chompingJaws);
+        gorosaurus.addAttack(kangarooKick);
+        gorosaurus.addAttack(burrowAmbush);
+        gorosaurus.addFirstAttack();
+
+//        setup baragon
+        baragon = new Kaiju("Baragon", 50, 20,1, 110,"baragon");
+        hornRam = new Attack("Horn Ram", 10,10,1);
+        flameRay = new Attack("Flame Ray", 20,20,2);
+        chargingImpale = new Attack("Charging Impale", 50,60,3);
+        baragon.addAttack(hornRam);
+        baragon.addAttack(flameRay);
+        baragon.addAttack(chargingImpale);
+        baragon.addFirstAttack();
+
+//        setup gamera
+        gamera = new Kaiju("Gamera", 50, 20,1, 110,"gamera");
+        elbowClaw = new Attack("Elbow Claw", 10,10,1);
+        plasmaFireball = new Attack("Plasma Fireball", 20,20,2);
+        spinningShell = new Attack("Spinning Shell", 50,60,3);
+        gamera.addAttack(elbowClaw);
+        gamera.addAttack(plasmaFireball);
+        gamera.addAttack(spinningShell);
+        gamera.addFirstAttack();
+
+//        setup megalon
+        megalon = new Kaiju("Megalon", 50, 20,1, 110,"megalon");
+        drillingStrike = new Attack("Drilling Strike", 10,10,1);
+        lightningHorn = new Attack("Lightning Horn", 20,20,2);
+        napalmBomb = new Attack("Napal Bomb", 50,60,3);
+        megalon.addAttack(drillingStrike);
+        megalon.addAttack(lightningHorn);
+        megalon.addAttack(napalmBomb);
+        megalon.addFirstAttack();
+
+//        setup titanosaurus
+        titanosaurus = new Kaiju("Titanosaurus", 50, 20,1, 110,"titanosaurus");
+        tailCyclone = new Attack("Tail Cyclone", 10,10,1);
+        jumpingSlam = new Attack("Jumping Slam", 20,20,2);
+        sonicWave = new Attack("Sonic Wave", 50,60,3);
+        titanosaurus.addAttack(tailCyclone);
+        titanosaurus.addAttack(jumpingSlam);
+        titanosaurus.addAttack(sonicWave);
+        titanosaurus.addFirstAttack();
+
 //        setup King Ghidorah
         kingGhidorah = new Kaiju("King Ghidorah", 50, 20,1, 110,"king_ghidorah");
         doubleTailWhip = new Attack("Double Tail Whips", 10,10,1);
@@ -106,6 +257,66 @@ public class GameMaster implements Serializable {
         mechagodzilla.addAttack(fingerRockets);
         mechagodzilla.addAttack(heatBeam);
         mechagodzilla.addFirstAttack();
+
+//        setup battra
+        battra = new Kaiju("Battra", 50, 20,1, 110,"battra");
+        poisonDust = new Attack("Poison Dust", 10,10,1);
+        prismBeams = new Attack("Prism-Beams", 30,40,2);
+        kamikazeRam = new Attack("Kamikaze Ram", 50,60,3);
+        battra.addAttack(poisonDust);
+        battra.addAttack(prismBeams);
+        battra.addAttack(kamikazeRam);
+        battra.addFirstAttack();
+
+//        setup biollante
+        biollante = new Kaiju("Biollante", 50, 20,1, 110,"biolante");
+        vineWhips = new Attack("Vine Whips", 10,10,1);
+        jawSnap = new Attack("Jaw-Snap", 30,40,2);
+        corrosiveSap = new Attack("Corrosive Sap", 50,60,3);
+        biollante.addAttack(vineWhips);
+        biollante.addAttack(jawSnap);
+        biollante.addAttack(corrosiveSap);
+        biollante.addFirstAttack();
+
+//        setup spacegodzilla
+        spaceGodzilla = new Kaiju("Space Godzilla", 50, 20,1, 110,"space_godzilla");
+        crystalShards = new Attack("Crystal Shards", 10,10,1);
+        coronaBeam = new Attack("Corona-Beam", 30,40,2);
+        telekinesis = new Attack("Telekinesis", 50,60,3);
+        spaceGodzilla.addAttack(crystalShards);
+        spaceGodzilla.addAttack(coronaBeam);
+        spaceGodzilla.addAttack(telekinesis);
+        spaceGodzilla.addFirstAttack();
+
+//        setup mechakingghidorah
+        mechaKingGhidorah = new Kaiju("Mecha-King Ghidorah", 50, 20,1, 110,"mecha_king_ghidorah");
+        ironWings = new Attack("Iron Wings", 10,10,1);
+        captureCables = new Attack("Capture Cables", 30,40,2);
+        tripleLaser = new Attack("Triple Laser", 50,60,3);
+        mechaKingGhidorah.addAttack(ironWings);
+        mechaKingGhidorah.addAttack(captureCables);
+        mechaKingGhidorah.addAttack(tripleLaser);
+        mechaKingGhidorah.addFirstAttack();
+
+//        setup destroyah
+        destroyah = new Kaiju("Destroyah", 50, 20,1, 110,"destroyah");
+        laserHorn = new Attack("Laser Horn", 10,10,1);
+        chestBeam = new Attack("Chest Beam", 30,40,2);
+        microOxygenBeam = new Attack("Micro-Oxygen Beam", 50,60,3);
+        destroyah.addAttack(laserHorn);
+        destroyah.addAttack(chestBeam);
+        destroyah.addAttack(microOxygenBeam);
+        destroyah.addFirstAttack();
+
+//        setup mechagamera
+        mechaGamera = new Kaiju("Mecha-Gamera", 50, 20,1, 110,"mecha_gamera");
+        steelClaws = new Attack("Steel Claws", 10,10,1);
+        homingRockets = new Attack("Homing Rockets", 30,40,2);
+        plasmaBeam = new Attack("Plasma Beam", 50,60,3);
+        mechaGamera.addAttack(steelClaws);
+        mechaGamera.addAttack(homingRockets);
+        mechaGamera.addAttack(plasmaBeam);
+        mechaGamera.addFirstAttack();
     }
 
     public ArrayList<Player> getAllCombatants() {
